@@ -1,7 +1,7 @@
 .PHONY: blog/_site/ public/
 
 blog/_site/:
-	cd blog; bundle exec jekyll build
+	cd blog; bundle install && bundle exec jekyll build
 
 public/: blog/_site/
 	rm -rf public
