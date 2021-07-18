@@ -1,0 +1,35 @@
+# Enable Rewrite Engine (duh).
+RewriteEngine on
+
+RewriteBase "/light-web-pages/demo"
+
+
+# If LWP header is equal to "0" AND
+RewriteCond %{HTTP:LWP} =0
+
+# if the URL starts with "/light/" or is just "/light" AND
+RewriteCond %{REQUEST_URI} ^/light-web-pages/demo/light(/.*|)$
+
+# if the will-be-redirected URL exists (check whether the file/directory exists)
+RewriteCond %{DOCUMENT_ROOT}/light-web-pages/demo%1 -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/light-web-pages/demo%1 -d
+
+# THEN redirect the client to the original URL minus "light/" prefix.
+RewriteRule ^light/(.*)$ $1 [R=303,L]
+
+
+# If LWP header is equal to "1" AND
+RewriteCond %{HTTP:LWP} =1
+
+# if the URL neither starts with "/light/" nor is just "/light" AND
+RewriteCond %{REQUEST_URI} !^/light-web-pages/demo/light(/.*|)$
+
+# (this is just to catch the path, to be used in the next group)
+RewriteCond %{REQUEST_URI} ^/light-web-pages/demo(/.*|)$
+
+# if the will-be-redirected URL exists (check whether the file/directory exists)
+RewriteCond %{DOCUMENT_ROOT}/light-web-pages/demo/light%1 -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/light-web-pages/demo/light%1 -d
+
+# THEN redirect the client to the orignal URL prefixed with "light/"
+RewriteRule ^(.*) light/$1 [R=303,L]

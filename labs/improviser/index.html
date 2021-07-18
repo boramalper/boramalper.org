@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+                a.title {
+                        text-decoration: none;
+                }
+
+                a {
+                        color: black;
+                }
+
+                a:hover {
+                        background-color: black;
+                        color: white;
+                }
+
+		#controller {
+			all: initial;
+			font-weight: lighter;
+			text-decoration: inherit;
+			font-size: 120%;
+		}
+
+                q {
+                        font-style: italic;
+                }
+	</style>
+
+	<title>improviser - labs.boramalper.org</title>
+
+	<script src="beep/Beep.js"></script>
+	<script src="beep/Beep.Note.js"></script>
+	<script src="beep/Beep.Sample.js"></script>
+	<script src="beep/Beep.Voice.js"></script>
+	<script src="improviser.js"></script>
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["setDomains", ["*.labs.boramalper.org"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//boramalper.org/piwik/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', 2]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//boramalper.org/piwik/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+    <!-- End Piwik Code -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6369477540697672",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+<body>
+<h1><span style="font-size:0.6em"><a class="title" href='http://labs.boramalper.org'>labs.</a><a class="title" href='http://boramalper.org'>boramalper.org</a></span>/improviser</h1>
+
+<fieldset>
+		<legend>Scale</legend>
+		<input type="radio" name="semitones" value="C-Eb-F-F#-G-Bb-C" />C pentatonic<br />
+		<input type="radio" name="semitones" value="C#-E-F#-G-G#-B-C#" />C# pentatonic<br />
+		<input type="radio" name="semitones" value="D-F-G-G#-A-C-D" />D pentatonic<br />
+		<input type="radio" name="semitones" value="D#-F#-G#-A-A#-C#-D#" />D# pentatonic<br />
+		<input type="radio" name="semitones" value="E-G-A-A#-B-D-E" />E pentatonic<br />
+		<input type="radio" name="semitones" value="F-Ab-Bb-B-C-Eb-F" />F pentatonic<br />
+		<input type="radio" name="semitones" value="F#-A-B-C-C#-E-F#" />F# pentatonic<br />
+		<input type="radio" name="semitones" value="G-Bb-C-C#-D-F-G" />G pentatonic<br />
+		<input type="radio" name="semitones" value="G#-B-C#-D-D#-F#-G#" />G# pentatonic<br />
+		<input type="radio" name="semitones" value="A-C-D-D#-E-G-A" checked />A pentatonic<br />
+		<input type="radio" name="semitones" value="A#-C#-D#-E-E#-G#-A#" />A# pentatonic<br />
+		<input type="radio" name="semitones" value="B-D-E-F-F#-A-B" />B pentatonic<br />
+		
+</fieldset>
+
+<script>
+function switch_it() {
+	if (!("started" in switch_it)) {
+		switch_it.started = 0;
+	}
+
+	if (switch_it.started) {
+		stop_improvising();
+		document.getElementById("controller").innerHTML = "⏯ improvise";
+		switch_it.started = 0;
+	}
+	else {
+		scale = document.querySelector('input[name="semitones"]:checked').value.split("-");
+		pause = 200;
+		improvise(scale, pause);
+		document.getElementById("controller").innerHTML = "⏯ pause";
+		switch_it.started = 1;
+	}
+}
+</script>
+<br />
+<a href="javascript:switch_it()"><span id="controller">⏯ improvise</span></a>
+<hr>
+<h2>what is it?</h2>
+improviser is a software, that transforms entropy into blues pieces.
+
+<h2>acknowledgements</h2>
+i used:
+<ul>
+<li><a href="http://blog.robertelder.org/bash-one-liner-compose-music/" target="_blank">Bash One Liner - Compose Music From Entropy in /dev/urandom</a></li>
+<li><a href="http://beepjs.com/" target="_blank">beep.js</a> - <q>Beep is a JavaScript toolkit for building browser-based synthesizers.</q><br />
+Copyright © 2015, Stewart Smith.</li>
+</ul>
+</body>
+</html>

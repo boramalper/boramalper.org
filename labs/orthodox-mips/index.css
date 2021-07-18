@@ -1,0 +1,56 @@
+body {
+        font-family: Georgia, 'Times New Roman', serif;
+}
+
+div#view {
+        display: flex;
+        justify-content: space-between;
+}
+
+div#view * {
+        flex-grow: 1;
+}
+
+div#results {
+        margin-left: 1em;
+}
+
+#codeContainer {
+        max-width: 72ch;
+}
+
+li {
+        font-family: monospace, monospace;
+}
+
+dt {
+        font-weight: bold;
+        font-family: monospace, monospace;
+}
+
+span#invalid {
+        color: red;
+        font-weight: bold;
+}
+
+div#copyright {
+        max-width: 72ch;
+        margin-left: auto;
+        margin-right: auto;
+
+        hyphens: auto;
+}
+
+a.title {
+        text-decoration: none;
+}
+
+a {
+        color: black;
+}
+
+a:hover {
+        background-color: black;
+        color: white;
+}
+

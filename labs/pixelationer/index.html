@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>pixelationer - labs.boramalper.org</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script defer src="index.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6369477540697672",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+<body>
+<h1><span style="font-size:0.6em"><a class="title" href='http://labs.boramalper.org'>labs.</a><a class="title" href='http://boramalper.org'>boramalper.org</a></span>/pixelationer</h1>
+
+<div>
+<q>Some painters transform a yellow spot into the sun, others transform red and green spots into the sun.</q><br>
+Not Pablo Picasso
+</div>
+
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <div id="main-canvas-container" style="flex-grow: 1;">
+        <label for="image-input">
+            <canvas id="main-canvas">Your browser is not supported.</canvas>
+        </label>
+    </div>
+</div>
+
+<input id="image-input" type="file" accept="image/*">
+<canvas id="mg-canvas"></canvas>
+
+<hr>
+
+<table>
+<tr>
+    <td><strong>Block Size: <span id="block-size">4</span></strong></td>
+    <td></td>
+    <td><strong>SuperBlock Ratio: <span id="ratio">2</span></strong></td>
+</tr>
+<tr>
+    <td><input id="block-size-input" type="range" min="1" max="64" value="4" step="1" /></td>
+    <td><button id="pixelate-button" type="button" disabled>repixelate</button></td>
+    <td><input id="ratio-input" type="range" min="2" max="32" value="2" step="1" /></td>
+</tr>
+<tr>
+    <td id="block-size-warning" style="opacity: 0;"><span style="font-size: x-large; color: red; font-weight: bold;">⚠</span>  <span style="vertical-align: super;">Values less than 4 might be really slow.</span></td>
+    <td></td>
+    <td></td>
+</tr>
+</table>
+
+<h2>How it works?</h2>
+<ol>
+<li>
+    <strong>pixelationer</strong> divides the image into so-called <em>SuperBlocks</em>.
+    <ul>
+    <li>Each SuperBlock is divided with an <tt>r * r</tt> grid where <tt>r</tt> is the <em>SuperBlock Ratio</em>.</li>
+    </ul>
+</li>
+<li>Colours of the all pixels in each SuperBlock is averaged (using simple arithmetic mean in <a href="https://en.wikipedia.org/wiki/RGB_color_model" target="_blank">RGB colour model</a>).</li>
+<li>
+    Each SuperBlock is then filled in random order with blocks (<i>i.e.</i> big pixels) of given size with colours red, green and blue.
+    <ol>
+    <li>Although, <strong>pixelationer</strong> assures that the amount of red, green, and blue blocks are either equal or almost equal to each other (the difference cannot be greater than <tt>r mod 3</tt>; otherwise <strong>pixelationer</strong> would have used each colour once more). </li>
+    </ol>
+</li>
+</ol>
+</body>
+</html>

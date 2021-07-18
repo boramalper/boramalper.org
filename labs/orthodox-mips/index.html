@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <title>Orthodox MIPS - labs.boramalper.org</title>
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+
+  <meta name="description" content="Are all your instructions from the Bible?">
+  <meta property="og:title" content="Orthodox MIPS - labs.boramalper.org">
+  <meta property="og:description" content="Are all your instructions from the Bible?">
+  <meta property="og:site_name" content="labs.boramalper.org">
+
+  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="index.css">
+  <script src="highlight.pack.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+        <h1><span style="font-size:0.6em"><a class="title" href='http://labs.boramalper.org'>labs.</a><a class="title" href='http://boramalper.org'>boramalper.org</a></span>/orthodox-mips</h1>
+
+        <p><em>Are all your instructions from the Bible?</em></p>
+
+        <br>
+
+        <label for="sourceFile">Source file:</label>
+        <input id="sourceFile" type="file" accept=".s" onchange="onFileChange();" />
+        <br>
+        <small>Your file will <em>not</em> be uploaded to anywhere; everything is completely client-side.</small>
+
+        <div id="view">
+                <div id="codeContainer">
+                        <p><em>Please glance upon your source code to ensure that each and every
+                        instruction is individually highlighted!</em></p>
+                        <p><em>WARNING: </em>This program assumes that <b>spaces</b> are used to indent code instead of tabs. 
+                                Also commands that are placed inline with labels will not be assessed</p>
+                        <pre><code id="code" class="mipsasm">
+                                Select a MIPS file above
+                        </code></pre>
+                </div>
+                <div id="results">
+                        <h2>Instruction Signatures Found:</h2>
+
+                        <ol id="signatures">
+                        </ol>
+
+                        <h3>Legend</h3>
+                         <dl>
+                                <dt>R</dt>
+                                <dd>Register</dd>
+
+                                <dt>I</dt>
+                                <dd>Immediate</dd>
+
+                                <dt>L</dt>
+                                <dd>Label/Target</dd>
+
+                                <dt>Ar</dt>
+                                <dd>Addressing: <tt>($register)</tt></dd>
+
+                                <dt>Air</dt>
+                                <dd>Addressing: <tt>immediate($register)</tt></dd>
+
+                                <dt>Ali</dt>
+                                <dd>Addressing: <tt>label±immediate</tt></dd>
+
+                                <dt>Alr</dt>
+                                <dd>Addressing: <tt>label($register)</tt></dd>
+
+                                <dt>Alir</dt>
+                                <dd>Addressing: <tt>label±immediate($register)</tt></dd>
+
+                        </dl>
+                </div>
+        </div>
+
+        <hr>
+
+        <div id="copyright">
+                <p><strong>Copyright (c) 2018 Mert Bora ALPER &lt;bora et boramalper dot org&gt;</strong></p>
+
+                <p>Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</p>
+
+                <p>THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</p>
+        </div>
+</body>
+

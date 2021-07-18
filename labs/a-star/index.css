@@ -1,0 +1,42 @@
+#appContainer {
+    display: flex;
+    justify-content: space-between;
+    height: 90vh;
+}
+
+canvas {
+    min-width: calc(48 * 24px);
+    width: 100%;
+    margin-right: 4px;
+    border: 0.5px solid gray;
+}
+
+canvas > div {
+    color: red;
+    font-size: x-large;
+}
+
+#controller {
+    min-width: 239px;
+    border: 2px solid gray;
+    margin-left: 4px;
+    padding: 1em 8px 1em 8px;
+}
+
+#controller button {
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+a.title {
+        text-decoration: none;
+}
+
+a {
+        color: black;
+}
+
+a:hover {
+        background-color: black;
+        color: white;
+}

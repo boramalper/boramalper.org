@@ -1,0 +1,36 @@
+a.title {
+    text-decoration: none;
+}
+
+
+a {
+    color: white;
+}
+
+
+a:hover {
+    background-color: white;
+    color: #121212;
+}
+
+
+body {
+    color: white;
+    margin: 0px 0px 0px 0px;
+    background-color: #121212;
+}
+
+
+h1 {
+    color: white;
+}
+
+body {
+    margin-left: 1em;
+    margin-right: 1em;
+    max-width: 540px;
+}
+
+p {
+    text-align: justify;
+}

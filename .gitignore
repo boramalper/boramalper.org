@@ -1,0 +1,5 @@
+/blog/vendor
+/blog/_site
+/blog/.jekyll-cache
+/blog/.vscode
+/public

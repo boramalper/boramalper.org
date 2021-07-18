@@ -1,0 +1,30 @@
+#paper-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#paper {
+    font-size: 2em;
+    font-family: 'Times New Roman';
+}
+
+@media (max-width: 736px) {
+    #paper {
+        font-size: 1em;
+    }
+}
+
+a.title {
+    text-decoration: none;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    background-color: black;
+    color: white;
+}

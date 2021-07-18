@@ -1,0 +1,85 @@
+a.title {
+    text-decoration: none;
+}
+
+
+a {
+    color: white;
+}
+
+
+a:hover {
+    background-color: white;
+    color: #121212;
+}
+
+
+q {
+    font-style: italic;
+}
+
+
+body {
+    color: white;
+    margin: 0px 0px 0px 0px;
+    background-color: #121212;
+}
+
+
+h1 {
+    color: white;
+}
+
+
+#main-canvas {
+    border: 1px solid white;
+    width: 20%;
+    height: 20%;
+}
+
+
+#mg-canvas {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    display: none;
+    border: 1px white solid;
+    border-radius: 0px 50px 50px 50px;
+}
+
+
+#image-input {
+    display: none;
+}
+
+
+#block-size-input, #ratio-input {
+    width: 100%;
+}
+
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 99%;
+}
+
+
+td {
+    text-align: center;
+}
+
+
+#block-size-warning {
+    color: red;
+}
+
+
+tr > td:nth-child(1), td:nth-child(3) {
+    width: 45%;
+}
+
+
+tr > td:nth-child(2) {
+    width: 10%;
+}

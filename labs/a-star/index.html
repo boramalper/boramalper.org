@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" />
+
+  <title>A* - labs.boramalper.org</title>
+  <meta name="description" content="Browse A* pathfinding algorithm.">
+  <meta name="author" content="Bora M. Alper">
+
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div id="appContainer">
+    <canvas>
+      <div>Your browser is not supported.</div>
+    </canvas>
+    
+    <div id="controller">
+      <b>Heuristics</b><br>
+      <label><input type="radio" name="heuristic" value="chebyshev" checked />Chebyshev (Diagonal) (L<sub>∞</sub>)</label><br>
+      <label><input type="radio" name="heuristic" value="euclidean" />Euclidean (L<sup>2</sup>)</label><br>
+      <label><input type="radio" name="heuristic" value="manhattan" />Manhattan (L<sub>1</sub>)</label><br>
+      <label><input type="radio" name="heuristic" value="octile" />Octile</label><br>
+      
+      <hr>
+      
+      <b>Tiles</b><br>
+      <label><input type="radio" name="tiles" value="D" checked />Default (10 points) (white)</label><br>
+      <label><input type="radio" name="tiles" value="L" /><b><span style="color: rgb(80, 80, 255)">Low friction (20 points)</span></b></label><br>
+      <label><input type="radio" name="tiles" value="M" /><b><span style="color: rgb(20, 20, 150)">Medium friction (40 points)</span></b></label><br>
+      <label><input type="radio" name="tiles" value="H" /><b><span style="color: rgb(0, 0, 70)">High friction (60 points)</span></b></label><br>
+      <label><input type="radio" name="tiles" value="B" /><b>Blocked tile</b></label><br>
+      <i>Click on tiles to change them.</i><br>
+      <br>
+      <button id="reset" onclick="reset_onClick()">Reset</button>
+      
+      <hr>
+      
+      <b>Engine</b><br>
+      <button onclick="stop_onClick()" id="stop" disabled>Stop</button><br>
+      <button onclick="start_onClick()" id="start">Start</button><br>
+      <input id="steps" type="number" step="1" min="1" max="20" value="5" style="width: 20%; padding: 0px; border-right: 2px;" /> <button style="width: calc(79% - 4px);" onclick="step_onClick()" id="step" disabled>Step(s) Forward</button><br>
+      <button onclick="finish_onClick()" id="finish" disabled>Finish</button>
+      
+      <hr>
+      
+      <b>Result</b><br>
+      <span id="iterations">0</span> iterations<br>
+      <span id="cost">0</span> total cost<br>
+    </div>
+  </div>
+    
+  <h1><span style="font-size:0.6em"><a class="title" href='http://labs.boramalper.org'>labs.</a><a class="title" href='http://boramalper.org'>boramalper.org</a></span>/a-star</h1>
+  <em>Browse A* pathfinding algorithm.</em>
+  
+  <h2>What?</h2>
+  <p>
+  This application finds <strong>the optimum</strong> (<i>i.e.</i> the cheapest) path from <strong><span style="color: green;">green</span> tile</strong> to the <strong><span style="color: red;">red</span> tile</strong>,
+  where <em>vertices</em> are respresented as tiles, using <a target="_blank" href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* pathfinding algorithm</a> with various user-selectable <a href="#heuristics">heuristics</a>.
+  </p>
+  
+  <p>
+  Explored tiles are colored in <span style="color: rgba(0, 200, 0, 1);"><b>green</b></span> and the frontier is colored in <span style="color: rgba(240, 0, 0, 1);"><b>purple</b></span>, both transparently.
+  </p>
+  
+  <h2>How?</h2>
+  <p>
+  <strong>The cost</strong> of moving from one tile to another (i.e. the <em>weight of the edge</em>) is found by
+  calculating the arithmetic mean of the weights of the two tile; if movement is diagonal, the average is multiplied with
+  <math xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><mn>2</mn></msqrt></math>.
+  The blocked tiles (colored with
+  <strong>black</strong>) are impossible to pass through. Choose a tile type from the menu on the right and
+    move your mouse across the grid to change tiles' type.
+  </p>
+  
+  <p>Click on <strong>Start</strong> button to initialize the engine; you cannot alter the tiles afterwards until
+  you <strong>Stop</strong> the engine. You can click on <strong>Finish</strong> button to see the result
+  immediately, or move a few steps <strong>forward</strong> to observe the execution of the algorithm.
+  </p>
+  
+  <h2>Heuristics</h2>
+  <p>
+  For <a target="_blank" href="https://en.wikipedia.org/wiki/Admissible_heuristic">admissibility</a>, all of the
+  heuristics assumes that all tiles have the default type.
+  </p>
+  
+  <ul>
+  <li><b>Chebyshev (Diagonal)</b>
+  <p><q>Chebyshev, also known as diagonal, distance is a metric defined on a vector space where the <strong>distance between two
+  vectors is the greatest of their differences along any coordinate dimension</strong>.</q></p>
+  <p><a target="_blank" href="https://en.wikipedia.org/wiki/Chebyshev_distance">https://en.wikipedia.org/wiki/Chebyshev_distance</a> (accessed on 21-Jul-2016)</p></li>
+  
+  <li><b>Euclidean</b>
+  <p>Euclidean distance, also known as "Pythagorean metric", is a metric where the distance between two vectors is the square root of the
+  sum of square of the difference of their Cartesian coordinates.</p></li>
+  
+  <li><b>Manhattan</b>
+  <p>Manhattan distance is a metric where the distance between two vectors is the <q>sum of the absolute differences of
+  their Cartesian coordinates</q>.</p>
+  <p><a target="_blank" href="https://en.wikipedia.org/wiki/Taxicab_geometry">https://en.wikipedia.org/wiki/Taxicab_geometry</a> (accessed on 21-Jul-2016)</p>
+  <p><i>NOT ADMISSIBLE,</i> since diagonal movements are allowed on our grid!</p></li>
+
+  
+  <li><b>Octile</b>
+  <p>Octile distance is a metric used to calculate the distance where diagonal movement is also possible, with the cost
+  of moving diagonally is <math xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><mn>2</mn></msqrt></math> times of moving between adjacent tiles. It is the sum of the cost of the shortest
+  diagonal path starting from start tile until reaching the same column or row with the goal tile, and the cost of the
+  remaining straight path.</p></li>
+  </ul>
+  
+  <h2>Notices</h2>
+  <p>
+  This application is created as a support material for the <em>Internal Assessment</em>
+  of <strong>Mert Bora ALPER</strong> in mathematics as a part of
+  <em>International Baccalaureate Diploma Programme</em>.
+  </p>
+  
+  <p>
+  <strike>Source code of this application is deliberately obfuscated to prevent any copyright claims. If you are from IBO,
+  please contact me at <tt>m.boraalper@uwcdilijan.org</tt> or <tt>bora@boramalper.org</tt> to get the original source
+    code.</strike> See <a href="https://github.com/boramalper/a-star" target="_blank">GitHub</a>.
+  </p>
+  
+  <p>
+    Copyright © 2016-2019 <a href="mailto:bora@boramalper.org">Mert Bora ALPER</a>. <strike>All rights reserved.</strike>
+    Licensed under ISC.
+  </p>
+  <script src="index.js"></script>
+  <!-- Fallback if MathML doesn't work (e.g. Chrome) -->
+  <script src="http://fred-wang.github.io/mathml.css/mspace.js"></script>
+</body>
+</html>
