@@ -1,6 +1,6 @@
 .PHONY: blog/_site/ public/
 
-blog/site_/:
+blog/_site/:
 	cd blog; bundle exec jekyll build
 
 public/: blog/_site/
