@@ -14,6 +14,10 @@ date: 2021-10-02T00:00:00Z
 - Mainstream browsers should integrate Tor to allow users to visit .onion websites just as any other, with only the requests to `*.onion` domains being routed through the Tor network.
 
 ## Try It
+> **EDIT on 2021-10-05:**
+>
+> Beware! The following demo is **NOT** as anonymous as using [Tor Browser](https://www.torproject.org/download/), proceed with caution.
+
 1. Install Tor daemon:
 
    ```bash
