@@ -5,7 +5,7 @@ date: 2022-05-29T20:07:00Z
 
 - [Improved error reporting for CPython 3.10—and beyond](https://lwn.net/Articles/895587/) (LWN subscribers only, see [What's New In Python 3.10 § Better error messages](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages))
   
-  I think "papercuts" are severly underestimated so it makes me incredibly happy that CPython devs are addressing them, especially important given that Python is the first language (and often the _only_ language) many people use.
+  I think "papercuts" are severely underestimated so it makes me incredibly happy that CPython devs are addressing them, especially important given that Python is the first language (and often the _only_ language) many people use.
 
 - [How To Be Successful](https://blog.samaltman.com/how-to-be-successful)
 
@@ -29,7 +29,7 @@ date: 2022-05-29T20:07:00Z
 
 - [Why SQLite may become foundational for digital progress](https://venturebeat.com/2022/05/20/why-sqlite-may-become-foundational-for-digital-progress/)
 
-  One of the most differentiating features of SQLite is that it _is_ a relation database file format that you can simply copy from one place to another, without having to "dump" and/or "import" anything anywhere---I might be totally wrong here, but in my limited experience no RDBMS supports this. That simple fact, that the database is a computer file, enables a pleathora of abstractions already available for files to a relational SQL database. For example, [Litestream](https://litestream.io/) (already mentioned in the article) and [sql.js-httpvfs](https://github.com/phiresky/sql.js-httpvfs).
+  One of the most differentiating features of SQLite is that it _is_ a relation database file format that you can simply copy from one place to another, without having to "dump" and/or "import" anything anywhere---I might be totally wrong here, but in my limited experience no RDBMS supports this. That simple fact, that the database is a computer file, enables a plethora of abstractions already available for files to a relational SQL database. For example, [Litestream](https://litestream.io/) (already mentioned in the article) and [sql.js-httpvfs](https://github.com/phiresky/sql.js-httpvfs).
 
 - [This "amateur" programmer fought cancer with 50 Nvidia Geforce 1080Ti](https://howardchen.substack.com/p/this-amateur-programmer-fought-cancer)
 
