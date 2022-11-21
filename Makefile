@@ -1,4 +1,4 @@
-.PHONY: blog/_site/ public/
+.PHONY: blog/_site/ public/ serve
 
 blog/_site/:
 	cd blog; bundle install && bundle exec jekyll build
