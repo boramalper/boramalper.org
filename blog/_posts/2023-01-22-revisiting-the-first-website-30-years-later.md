@@ -3,9 +3,9 @@ title: "Revisiting the first website 30 years later"
 date: 2023-01-22T07:58:00Z
 ---
 
-I cannot remember how I stumbled upon it but when I visited [the first website](http://info.cern.ch/hypertext/WWW/TheProject.html) that CERN still hosts up to this day, I fell down the rabit hole and I knew I had to dedicate an entire blog post to it. The `Last-Modified` header of the response points at Thu, 03 Dec 1992 08:37:20 GMT so we are looking at a 30 years old document here, which is like a century in tech and literally 30% of a century anyway.
+I cannot remember how I stumbled upon it but when I visited [the first website](http://info.cern.ch/hypertext/WWW/TheProject.html) that CERN still hosts up to this day, I fell down the rabbit hole and I knew I had to dedicate an entire blog post to it. The `Last-Modified` header of the response points at Thu, 03 Dec 1992 08:37:20 GMT so we are looking at a 30 years old document here, which is like a century in tech and literally 30% of a century anyway.
 
-What made that finding so special for me is the foresights it contains, their accuracy, and the clarity with which they are explained. Perhaps I'm not doing them justice by calling their vision foresight, as if they were waiting by the sidelines and see the web evolve. On the contrary, they actively shaped an entirely new platform that is so open and so ubiqutious like no other before.
+What made that finding so special for me is the foresights it contains, their accuracy, and the clarity with which they are explained. Perhaps I'm not doing them justice by calling their vision foresight, as if they were waiting by the sidelines and see the web evolve. On the contrary, they actively shaped an entirely new platform that is so open and so ubiquitous like no other before.
 
 Let's dig.
 
@@ -42,7 +42,7 @@ What I also found interesting is the mention of _virtual_ documents, referring t
 ## W3 vs WAIS and Gopher
 [http://info.cern.ch/hypertext/WWW/FAQ/WAISandGopher.html](http://info.cern.ch/hypertext/WWW/FAQ/WAISandGopher.html)
 
-Web took interoperability to its great advantage, read Tim's answer to the diffence between the three competing protocols and which one to choose:
+Web took interoperability to its great advantage, read Tim's answer to the difference between the three competing protocols and which one to choose:
 
 > Bear in mind:
 > * A W3 client can read data from any other system.
