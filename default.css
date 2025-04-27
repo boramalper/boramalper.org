@@ -1,0 +1,12 @@
+* {
+    text-rendering: optimizeLegibility;
+    text-wrap: pretty;
+}
+
+body {
+    font-family: sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 21cm;
+    padding: 1.27cm 1.27cm 1.27cm 1.27cm;
+}

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bora M. Alper</title>
@@ -12,13 +11,16 @@
     <meta name="description" content="Bora M. Alper's personal webpage">
 
     <!-- Control the behavior of search engine crawling and indexing -->
-    <meta name="robots" content="index,follow"><!-- All Search Engines -->
-    <meta name="googlebot" content="index,follow"><!-- Google Specific -->
+    <meta name="robots" content="index,follow">
+    <!-- All Search Engines -->
+    <meta name="googlebot" content="index,follow">
+    <!-- Google Specific -->
 
     <!-- Geo tags -->
     <meta name="geo.region" content="IE">
     <!-- Country code (ISO 3166-1): mandatory, state code (ISO 3166-2): optional; eg. content="GB" / content="GB-EDH" -->
-    <meta name="geo.placename" content="Dublin"><!-- eg. content="Edinburgh, City of" -->
+    <meta name="geo.placename" content="Cork">
+    <!-- eg. content="Edinburgh, City of" -->
 
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="https://boramalper.org">
@@ -53,569 +55,70 @@
     <!-- Disable automatic detection and formatting of possible phone numbers -->
     <meta name="format-detection" content="telephone=no">
 
-    <link href="source-serif-pro-release/source-serif-pro.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/default.css" />
     <style>
-        @font-face {
-            font-family: 'Cooper Hewitt';
-            font-style: italic;
-            font-weight: 400;
-            font-display: swap;
-            src: local('Cooper Hewitt Italic'), local('Cooper Hewitt-Italic'), url(./assets/fonts/CooperHewitt/CooperHewitt-MediumItalic.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Cooper Hewitt';
-            font-style: italic;
-            font-weight: 700;
-            font-display: swap;
-            src: local('Cooper Hewitt Bold Italic'), local('Cooper Hewitt-BoldItalic'), url(./assets/fonts/CooperHewitt/CooperHewitt-BoldItalic.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Cooper Hewitt';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: local('Cooper Hewitt'), local('Cooper Hewitt-Regular'), url(./assets/fonts/CooperHewitt/CooperHewitt-Medium.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Cooper Hewitt';
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: local('Cooper Hewitt Bold'), local('Cooper Hewitt-Bold'), url(./assets/fonts/CooperHewitt/CooperHewitt-Bold.woff) format('woff');
-        }
     </style>
+  </head>
 
-    <style>
-        * {
-            text-rendering: optimizeLegibility;
-            font-weight: 600;
-        }
-
-        dt,
-        dt a {
-            font-family: 'Cooper Hewitt', sans-serif;
-            font-weight: 900;
-            letter-spacing: 0.05em;
-        }
-
-        dd {
-            margin-bottom: 0.5em;
-        }
-
-        span.bold {
-            font-family: 'Cooper Hewitt', sans-serif;
-            font-weight: 900;
-            letter-spacing: 0.05em;
-        }
-
-        html {
-            font-size: 18px;
-        }
-
-        body {
-            background-color: white;
-            font-family: 'Source Serif Pro', serif;
-            font-weight: 400;
-            line-height: 1.45;
-            color: #383838;
-        }
-
-        a {
-            color: #1c6888;
-            text-decoration: none;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #181818;
-                color: white;
-            }
-
-            a {
-                color: #e39777;
-            }
-        }
-
-        p {
-            margin-bottom: 1.25em;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            margin: 2.75rem 0 1rem;
-            font-family: 'Cooper Hewitt', sans-serif;
-            font-weight: 400;
-            line-height: 1.15;
-        }
-
-        h1 {
-            margin-top: 0;
-            font-size: 2.488em;
-        }
-
-        h2 {
-            font-size: 2.074em;
-        }
-
-        h3 {
-            font-size: 1.728em;
-        }
-
-        h4 {
-            font-size: 1.44em;
-        }
-
-        h5 {
-            font-size: 1.2em;
-        }
-
-        small,
-        .text_small {
-            font-size: 0.833em;
-        }
-    </style>
-    <style>
-        ul,
-        ol {
-            margin-top: 0;
-        }
-
-        dl {
-            margin-top: 0;
-        }
-
-        p.first {
-            margin-top: 0;
-        }
-
-        h2 {
-            text-align: center;
-            font-variant: all-small-caps;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        body {
-            max-width: 21cm;
-        }
-
-        body {
-            margin: 1.15em 8px 1.15em 8px;
-        }
-
-        @media screen and (min-device-width: 1200px) {
-            body {
-                margin: 30mm 45mm 30mm 45mm;
-            }
-        }
-
-        header h3,
-        h4 {
-            margin-bottom: 0;
-        }
-
-
-        header p.subtitle {
-            font-family: 'Cooper Hewitt', sans-serif;
-            font-weight: 400;
-            font-size: 1.44em;
-            margin: 0 0 0 0;
-        }
-
-        header p.subsubtitle {
-            font-family: 'Cooper Hewitt', sans-serif;
-            font-weight: 400;
-            font-size: 1.2em;
-            margin-top: 0;
-            margin-bottom: 0.5em;
-        }
-
-        header:first-of-type h3,
-        header:first-of-type h4 {
-            margin-top: 0;
-        }
-
-        span.tt {
-            font-family: monospace;
-            font-size: smaller;
-        }
-
-        @page {
-            size: A4 portrait;
-            margin: 1in 1in 1in 1in;
-        }
-
-        h1, h2, h3, h4, h5 {
-            page-break-after: avoid;
-        }
-    </style>
-</head>
-
-<body>
+  <body>
     <h1>Bora M. Alper</h1>
 
-    <p>Hi! I am a software engineer at Stripe in Dublin. My interests are computer
-        systems
-        (<i>e.g.</i> compilers, operating systems, and databases), computer networking (edge computing, and
-        decentralisation), and
-        computer security (modelling, protocols, and applied cryptography).</p>
+    <p>
+      Hi! I am a software engineer at Stripe in Cork, Ireland. My interests are
+      computer systems (<i>e.g.</i> compilers, operating systems, and
+      databases), computer networking (edge computing, and decentralisation),
+      and computer security (modelling, protocols, and applied cryptography).
+    </p>
 
-    <span class="bold">Table of Contents</span>
-    <ol>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <!-- <li><a href="#experiments">Experiments</a></li> -->
-        <li><a href="#organisations">Organisations</a></li>
-        <li><a href="#awards">Awards</a></li>
-        <li><a href="#scholarships">Scholarships</a></li>
-        <li><a href="#languages">Languages</a></li>
-    </ol>
-
-    <p>Other things you might be looking for on this website:
-    <dl>
+    <p>
+      Other things you might be looking for on this website:
+      <dl>
         <dt><a href="blog/">/blog/</a></dt>
-        <dd>My personal blog on computer science, software development, the Internet, systems, and decentralisation.
+        <dd>
+          My personal blog on computer science, software development, the
+          Internet, systems, and decentralisation.
         </dd>
 
         <dt><a href="labs/">/labs/</a></dt>
-        <dd>My body of thought-work. Also see my <a href="https://github.com/boramalper/">GitHub</a>.</dd>
+        <dd>
+          My body of thought-work. Also see my <a
+            href="https://codeberg.org/boramalper"
+          >Codeberg</a>.
+        </dd>
 
-        <dt><a href="notes">/notes/</a></dt>
+        <dt><a href="notes/">/notes/</a></dt>
         <dd>My notes on certain subjects.</dd>
-    </dl>
+
+        <dt><a href="resume/">/resume/</a></dt>
+        <dd>My résumé.</dd>
+      </dl>
     </p>
 
-    <p>If you see @boramalper somewhere on the Internet, that is probably me. Here are some of my accounts
-        that you might be interested in:
-    <dl>
-        <dt><a href="https://www.flickr.com/people/boramalper/">Flickr</a></dt>
-        <dd>My photo gallery.</dd>
+    <p>
+      If you see @boramalper somewhere on the Internet, that is probably me.
+      Here are some of my accounts that you might be interested in:
+      <dl>
+        <dt>
+          <a href="https://mastodon.social/@boramalper" rel="me"
+          >@boramalper@mastodon.social</a>
+        </dt>
+        <dd>My microblog.</dd>
 
-        <dt><a href="https://github.com/boramalper/">GitHub</a></dt>
+        <dt><a href="https://codeberg.org/boramalper">Codeberg</a></dt>
         <dd>My directory of Free & Open Source Software.</dd>
 
-        <dt><a href="https://mastodon.social/@boramalper" rel="me">Mastodon</a></dt>
-        <dd>My microblog.</dd>
-    </dl>
+        <dt>
+          <a href="https://pixelfed.social/boramalper"
+          >@boramalper@pixelfed.social</a>
+        </dt>
+        <dd>My photo gallery.</dd>
+      </dl>
     </p>
 
-    <p>To contact me, please send an e-mail to <span>bora <small>at</small> boramalper <small>dot</small> org</span>. My
-        GPG fingerprint is
-        <a href="https://keybase.io/boramalper/"><span class="tt">5B9D 07D8 5C2C 024A 5525 9CF9 8710 7A4B 2A5D
-                1BFE</span></a>.</p>
-
-
-    <section>
-        <h2 id="experience">Experience</h2>
-
-        <header>
-            <h3>Software Engineer</h3>
-            <p class="subtitle">Stripe</p>
-            <p class="subsubtitle">December 2021&ensp;&mdash;&ensp;Dublin, Ireland</p>
-        </header>
-        <ul>
-            <li>Software engineer at Stripe Tax.</li>
-        </ul>
-
-        <header>
-            <h3>Software Engineer</h3>
-            <p class="subtitle">The University of Edinburgh</p>
-            <p class="subsubtitle">May 2021&thinsp;&ndash;&thinsp;August 2021&ensp;&mdash;&ensp;Edinburgh, United
-                Kingdom</p>
-        </header>
-        <ul>
-            <li>Ported <a target="_blank" href="https://knative.dev/docs/eventing/">Knative Eventing</a> to run on <a target="_blank" href="https://github.com/ease-lab/vhive">vHive</a>, an open-source framework for serverless experimentation developed by Edinburgh Architecture and Systems (EASE) Lab.</li>
-        </ul>
-
-        <header>
-            <h3>Tutor & Demonstrator</h3>
-            <p class="subtitle">The University of Edinburgh</p>
-            <p class="subsubtitle">September 2019&thinsp;&ndash;&thinsp;December 2020&ensp;&mdash;&ensp;Edinburgh, United
-                Kingdom</p>
-        </header>
-        <ul>
-            <li>Tutoring & demonstrating “Functional Programming”, “Reasoning and Agents”, “Software Engineering” and
-                “Object Oriented Programming” courses.</li>
-            <li>Helping students solidify their knowledge through letting them experiment in a friendly environment.
-            </li>
-            <li>Communicating with the professors to help them get a deeper insight in how their work is received by
-                students.</li>
-        </ul>
-
-        <header>
-            <h3>Software Engineering Intern</h3>
-            <p class="subtitle">The University of Edinburgh</p>
-            <p class="subsubtitle">June 2020&thinsp;&ndash;&thinsp;August 2020&ensp;&mdash;&ensp;Edinburgh, United
-                Kingdom</p>
-        </header>
-        <ul>
-            <li>Summer internship at the School of Engineering funded by EPSRC project <a href="http://www.synbim.co.uk/" target="_blank">SynBIM</a>, working with Dr Timm Krüger.</li>
-            <li>Extending the existing C/C++ simulation code to an arbitrary number of diffusive species.</li>
-            <li>Implementing chemical reactions between different species.</li>
-            <li>Assisting with back-end code for website and website user interface.</li>
-            <li>Supporting and training chemical engineering researchers in basic coding and running simulations.</li>
-        </ul>
-
-        <header>
-            <h3>Advanced Research Unit Intern</h3>
-            <p class="subtitle">Foundation for Armenian Science and Technology</p>
-            <p class="subsubtitle">June&ndash;September 2019&ensp;&mdash;&ensp;Yerevan, Armenia</p>
-        </header>
-        <ul>
-            <li>Built mathematical models of the Foundation’s finances to ensure operational effectiveness and manage
-                risks of their investments.</li>
-            <li>Led the design and development of a semantic search engine and a knowledge base for the open-access
-                scientific literature. Determined the product requirements by talking to researchers (fellows) and
-                start-ups to understand their needs. Delivered in a month, currently in closed-beta.</li>
-            <li>Collaborated on the curation of handwritten Armenian letters dataset. Developed an extractor using
-                OpenCV, helped with the testing of different neural network architectures and wrote the data
-                augmentation pipeline.</li>
-        </ul>
-
-        <header>
-            <h3>Exam Marker</h3>
-            <p class="subtitle">The University of Edinburgh</p>
-            <p class="subsubtitle">December 2018&thinsp;&ndash;&thinsp;January 2019&ensp;&mdash;&ensp;Edinburgh, United
-                Kingdom</p>
-        </header>
-        <ul>
-            <li>Marked the exams of “Introduction to Computation” by the special request of Prof Dr Michael Fourman.
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 id="education">Education</h2>
-
-        <header>
-            <h3>The University of Edinburgh</h3>
-            <p class="subtitle">BEng (Hons.) Computer Science</p>
-            <p class="subsubtitle">September 2017&thinsp;&ndash;&thinsp;May 2021&ensp;&mdash;&ensp;Edinburgh, United
-                Kingdom</p>
-        </header>
-        <ul>
-            <li>Currently 1.1 with a weighted average of 82.</li>
-            <li>Received <a href="#scholae-mundi-scholarship">Scholæ Mundi Scholarship</a>, <a
-                    href="#edinburgh-award">Edinburgh Award</a>, and
-                <a href="#fp-competition-second-prize">Functional Programming Competition Second Prize</a>.</li>
-            <li>3<sup>rd</sup> year courses:
-                <ul>
-                    <li>Compiling Techniques</li>
-                    <li>Operating Systems</li>
-                    <li>Computer Security</li>
-                    <li>System Design</li>
-                    <li>Foundations of Natural Language Processing</li>
-                </ul>
-            </li>
-        </ul>
-
-        <header>
-            <h3>United World Colleges Dilijan</h3>
-            <p class="subtitle">International Baccalaureate</p>
-            <p class="subsubtitle">August 2015&thinsp;&ndash;&thinsp;May 2017&ensp;&mdash;&ensp;Dilijan, Armenia</p>
-        </header>
-        <ul>
-            <li>An international high-school with 200 students from 60 different countries.</li>
-            <li>High-level courses: Mathematics, Physics, and Philosophy.</li>
-            <li>Final grade: 36/45.</li>
-        </ul>
-
-        <header>
-            <h3>İstanbul Cağaloğlu Anadolu Lisesi</h3>
-            <p class="subtitle">Anatolian High School</p>
-            <p class="subsubtitle">September 2011&thinsp;&ndash;&thinsp;June 2015&ensp;&mdash;&ensp;İstanbul, Turkey</p>
-        </header>
-        <ul>
-            <li>Average grade: 83/100.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 id="publications">Publications</h2>
-
-        <header>
-            <h4>How many values are errors in Go?</h4>
-            <p class="subsubtitle">June 2019</p>
-        </header>
-        <p class="first">Analysed the number of errors returned as values from functions
-            in Go, to explore the inefficiencies of Go’s error handling
-            mechanisms. Cited by Herb Sutter, a prominent C++ expert working
-            at Microsoft, in <a
-                href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0709r3.pdf"><q>Zero-overhead
-                    deterministic exceptions:
-                    Throwing values</q></a>.</p>
-        <p>Published on <a href="https://blog.boramalper.org/how-many-values-are-errors-in-go/">the blog</a>.</p>
-
-        <header>
-            <h4>A New Checksum Formula for Error Detection in Decimal Codes</h4>
-            <p class="subsubtitle">November 2017</p>
-        </header>
-        <p class="first">Developed a new algorithm for generating checksums of decimal
-            codes, that can detect 91.05% of all transmission errors,
-            outperforming industry-standard Luhn Algorithm, and performing
-            on-par with other modern algorithms such as Damm and Verhoeff.
-            Written as an extended essay during my International
-            Baccalaureate programme.</p>
-        <p><a href="https://doi.org/10.5281/zenodo.2541760">10.5281/zenodo.2541760</a></p>
-    </section>
-
-<!--
-    <section>
-        <h2 id="experiments">Experiments</h2>
-
-        <p>I regard all my personal work as experiments, some of which
-            “graduates” to bigger projects, but all of which nonetheless
-            taughts me a lot. Here are some significant ones.
-        </p>
-        <p>
-            See all my experiments in <a href="https://labs.boramalper.org">labs.boramalper.org</a>.
-        </p>
-
-        <header>
-            <h3>Pydis</h3>
-            <p class="subtitle">A redis clone in Python</p>
-            <p class="subsubtitle">March 2019&ensp;&mdash;&ensp;Python</p>
-        </header>
-        <dl>
-            <dt>About</dt>
-            <dd>Being frustrated with falsehoods regarding performance, I developed a minimal clone of the world’s most
-                popular database, Redis, in less than 250 lines of Python 3. Pydis was 60% as fast as Redis in op/s.
-            </dd>
-
-            <dt>What I Learned</dt>
-            <dd>Benchmarked and proved by example that for many practical purposes, Python can be as performant as
-                low-level languages such as C when the performance bottlenecks are identified and only then optimised in
-                a lower-level language (e.g. I used two C-modules to optimise networking and parsing code.)</dd>
-        </dl>
-
-        <header>
-            <h3>Breakout</h3>
-            <p class="subtitle">A breakout clone in browser</p>
-            <p class="subsubtitle">April 2018&ensp;&mdash;&ensp;JavaScript</p>
-        </header>
-        <dl>
-            <dt>About</dt>
-            <dd>Developed my first video game, a Breakout clone in the browser using JavaScript as a Progressive Web App
-                (PWA) that works on mobile too.</dd>
-
-            <dt>What I Learned</dt>
-            <dd>Game loops, HTML 5 and Web API, PWA, 2D graphics programming, and primitive physics simulation.</dd>
-        </dl>
-
-        <header>
-            <h3>Boolexman</h3>
-            <p class="subtitle">A propositional logic calculator</p>
-            <p class="subsubtitle">January 2018&ensp;&mdash;&ensp;Haskell</p>
-        </header>
-        <dl>
-            <dt>About</dt>
-            <dd>While studying logic at the University, I have developed Boolexman, an educational program that can
-                solve and explain logic problems.</dd>
-
-            <dt>What I Learned</dt>
-            <dd>Mastered propositional logic and improved my functional programming skills by using Haskell. Wrote
-                everything from scratch and learned a lot organically about parsing formal languages.</dd>
-        </dl>
-
-        <header>
-            <h3>Magnetico</h3>
-            <p class="subtitle">A decentralised BitTorrent search engine</p>
-            <p class="subsubtitle">April 2017&ensp;&mdash;&ensp;Go</p>
-        </header>
-        <dl>
-            <dt>About</dt>
-            <dd>A decentralised BitTorrent search engine that anyone can operate. My most popular project ever with
-                ~4,000 users.</dd>
-
-            <dt>What I Learned</dt>
-            <dd>Computer networking, concurrency, system design, and Go programming language. Led the contributions of
-                volunteers, listened to user needs, and ensured product quality.</dd>
-        </dl>
-
-    </section>
--->
-
-    <section>
-        <h2 id="organisations">Organisations</h2>
-
-        <header>
-            <h3>Turkish Society</h3>
-            <p class="subtitle">President</p>
-            <p class="subsubtitle">March 2019&thinsp;&ndash;&thinsp;June 2020&ensp;&mdash;&ensp;Edinburgh, United Kingdom
-            </p>
-        </header>
-        <p class="first">Leading Turkish Society at the University, whilst collaborating
-                closely with the Turkish Consulate for communicating with the
-                diaspora. Overseeing the initiatives of the committee, organising flagship events, and
-                raising funds for the society.</p>
-    </section>
-
-    <section>
-        <h2 id="awards">Awards</h2>
-
-        <header>
-            <h3 id="edinburgh-award">Edinburgh Award</h3>
-            <p class="subtitle">The University of Edinburgh</p>
-            <p class="subsubtitle">September 2019</p>
-        </header>
-        <p class="first">Awarded for volunteering abroad in the summer of 2019 as a research intern in Armenia.</p>
-
-        <header>
-            <h3 id="fp-competition-second-prize">Functional Programming Competition Second Prize</h3>
-            <p class="subtitle">The University of Edinburgh</p>
-            <p class="subsubtitle">September 2019</p>
-        </header>
-        <p class="first">Awarded to <a href="https://github.com/boramalper/piet-inf">piet∞</a> &ndash; interactive,
-            infinitely-recursive, procedurally-generated Piet-esque compositions.</p>
-
-    </section>
-
-    <section>
-        <h2 id="scholarships">Scholarships</h2>
-
-        <header>
-            <h3 id="scholae-mundi-scholarship">Scholæ Mundi Scholarship</h3>
-            <p class="subtitle">Scholæ Mundi Foundation</p>
-            <p class="subsubtitle">September 2017&thinsp;&ndash;&thinsp;Current</p>
-        </header>
-        <p class="first">Receiving a grant from <a href="https://scholaemundi.org/en/">Scholæ Mundi Foundation</a> on
-            the basis of my
-            academic achievements for my studies in The University of Edinburgh.</p>
-
-        <header>
-            <h3>United World Colleges Scholarship</h3>
-            <p class="subtitle">United World Colleges Dilijan</p>
-            <p class="subsubtitle">August 2015&thinsp;&ndash;&thinsp;May 2017</p>
-        </header>
-        <p class="first">Received a grant from <a href="https://www.uwc.org/">United World Colleges</a> on the basis of
-            my
-            success in high-school for my studies in UWC Dilian.
-        </p>
-    </section>
-
-    <section>
-        <h2 id="languages">Languages</h2>
-
-        <dl>
-            <dt>Turkish</dt>
-            <dd>Native</dd>
-
-            <dt>English</dt>
-            <dd>Second-language</dd>
-
-            <dt>German</dt>
-            <dd>Proficient, with B1 CEFR certificate</dd>
-
-            <dt>Russian & Armenian Créole</dt>
-            <dd>Beginner</dd>
-        </dl>
-</body>
-
+    <p>
+      To contact me, send an e-mail to <a href="mailto:bora@boramalper.org"
+      >bora@boramalper.org</a>. Alternatively, you can send me a message on
+      <a href="https://signal.org/">Signal</a> <tt>@boramalper.48</tt>.
+    </p>
+  </body>
 </html>
