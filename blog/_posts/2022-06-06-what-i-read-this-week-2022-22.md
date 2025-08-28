@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2022-22"
 date: 2022-06-06T21:36:00Z
+categories:
+  - wirtw
 ---
 
 This article should have been titled "What I Read Last Week"---today is a bank holiday in Ireland so I took my sweet time.

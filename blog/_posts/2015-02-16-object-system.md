@@ -72,14 +72,14 @@ Remember, _explicit > implicit_ and then _deny > allow_: For instance, an _expl
 
 There are 4 basic permissions that is applicable to different thing:
 
-  1. **Read  
-** Being able to see (notice) something, so it&#8217;s (generally) a must for other permissions. It also means reading (getting) data and/or metadata.
-  2. **Append**  
-    Being able to append to something, _without touching to existing data._
-  3. **Write**  
-    Being able to **change** an existing data, metadata or structure. _It also implies deleting._
-  4. **Execute**  
-    Being able to execute data.
+  1. **Read** \
+     Being able to see (notice) something, so it&#8217;s (generally) a must for other permissions. It also means reading (getting) data and/or metadata.
+  2. **Append** \
+     Being able to append to something, _without touching to existing data._
+  3. **Write** \
+     Being able to _change_ an existing data, metadata or structure. _It also implies deleting._
+  4. **Execute** \
+     Being able to execute data.
 
 #### Class
 
@@ -87,14 +87,14 @@ There are 4 basic permissions that is applicable to different thing:
 
 ##### Permissions:
 
-  1. **Read  
-** Means that user can read (also, see) the contents of a class and access its instances. _Required for following permission(s)._
-  2. **Append  
-** Means that a user can **append** new attributes and methods to a class **without modifying** existing ones.
-  3. **Write  
-** Means that a user can **modify** contents (attributes and methods) of a class.
-  4. **Execute**  
-    Means that user can create instances of a class.
+  1. **Read** \
+     Means that user can read (also, see) the contents of a class and access its instances. _Required for following permission(s)._
+  2. **Append** \
+     Means that a user can _append_ new attributes and methods to a class _without modifying_ existing ones.
+  3. **Write** \
+     Means that a user can _modify_ contents (attributes and methods) of a class.
+  4. **Execute** \  
+     Means that user can create instances of a class.
 
 ##### Includes:
 
@@ -107,10 +107,10 @@ You can also specifically allow or deny access to an attribute in a class.
 
 ##### Permissions
 
-  1. **Read  
-** Means that user can read (notice) an attribute. _Required for following permission(s)._
+  1. **Read** \
+     Means that user can read (notice) an attribute. _Required for following permission(s)._
   2. **Write**  
-    Means that user can modify an attributes name or type. Since changing type of an attribute will also change the values of the class&#8217; instances&#8217;, user must have rights to do so.
+     Means that user can modify an attributes name or type. Since changing type of an attribute will also change the values of the class&#8217; instances&#8217;, user must have rights to do so.
 
 #### Method
 
@@ -118,28 +118,28 @@ You can also specifically allow or deny access to a method in a class.
 
 ##### Permissions
 
-  1. **Read  
-** Means that user can read (notice) a method. _Required for following permission(s)._
-  2. **Write**  
-    Means that user can modify a method.
+  1. **Read** \
+     Means that user can read (notice) a method. _Required for following permission(s)._
+  2. **Write** \
+     Means that user can modify a method.
 
 #### Objects (Instances)
 
 ##### Permissions
 
-  1. **Read  
-** Means that user can see an object and read data & metadata (_values_) of itself. To access a value, being able to access it&#8217;s attribute is a must.
-  2. **Append  
-** Means that user can append to objects data and metadata. Appending to metadata only available in list types.
-  3. **Write**  
-    Means that user can write (modify) to objects data and metadata.
-  4. **Execute**  
-    Means that user can execute an object.
+  1. **Read** \
+     Means that user can see an object and read data & metadata (_values_) of itself. To access a value, being able to access it&#8217;s attribute is a must.
+  2. **Append** \
+     Means that user can append to objects data and metadata. Appending to metadata only available in list types.
+  3. **Write** \
+     Means that user can write (modify) to objects data and metadata.
+  4. **Execute** \
+     Means that user can execute an object.
 
 ##### Includes:
 
   * Values
-  * behaviors
+  * Behaviors
 
 #### Value
 
@@ -147,12 +147,12 @@ You can also specifically allow or deny access to a value of an object. First o
 
 ##### Permissions
 
-  1. **Read**  
-    Means that user can get the value of an object for an attribute. If user don&#8217;t has this permission yet permitted to read its correspondent attribute, then implementation may return a null or completely omit this field.
-  2. **Append**  
-    Means that user can append elements to the value _which is a list_.
-  3. **Write**  
-    Means that user can change the value of an object.
+  1. **Read** \
+     Means that user can get the value of an object for an attribute. If user don&#8217;t has this permission yet permitted to read its correspondent attribute, then implementation may return a null or completely omit this field.
+  2. **Append** \
+     Means that user can append elements to the value _which is a list_.
+  3. **Write** \
+     Means that user can change the value of an object.
 
 #### Behavior
 
@@ -160,8 +160,8 @@ You can also specifically allow or deny access to a behavior of an object. I am 
 
 ##### Permissions
 
-  1. **Execute**  
-    Means that user can execute a behavior of an object.
+  1. **Execute** \
+     Means that user can execute a behavior of an object.
 
 ## <a id="beyond"></a>Beyond
 

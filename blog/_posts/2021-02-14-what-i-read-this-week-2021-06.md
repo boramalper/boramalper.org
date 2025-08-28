@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2021-06"
 date: 2021-02-14T13:18:53+03:00
+categories:
+  - wirtw
 ---
 
 - [Big name corporations more likely to commit fraud](https://news.wsu.edu/2021/02/02/big-name-corporations-likely-commit-fraud/)

@@ -15,6 +15,7 @@ categories:
 tags:
   - management
   - marketing
+published: false
 ---
 Marketing, due to its historical luggage, is gravely misunderstood by many people as something to be _done_ to increase the sales of a product (_i.e._ promoting)_,_ whereas it should instead be understood as a _strategical process_, which is never done but continuing as long as the producer exists. Whether you are an entrepreneur, a solo free-software developer, or an indie game-dev, as long as you are a producer, you -presumably- must be working for your products to be used/consumed/bought by people (unless -of course- you are an artist, then you might want to abstain from the consideration of your audience). It is clear then, that marketing is crucial simply if you do not want your work to get wasted. **You do need marketing.**
 

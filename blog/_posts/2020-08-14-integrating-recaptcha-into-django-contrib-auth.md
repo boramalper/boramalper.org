@@ -1,6 +1,7 @@
 ---
 title: "Integrating reCAPTCHA into django.contrib.auth"
 date: 2020-08-14T16:32:53+03:00
+published: false
 ---
 
 Say you have a Django project, in which you are using [`django.contrib.auth`](https://docs.djangoproject.com/en/2.2/ref/contrib/auth/) for login, logout, password change, and password reset user-flows so not to reinvent the wheel. Integrating reCAPTCHA into those flows might seem harder than it is, so this blog post explains an easy and clean solution.

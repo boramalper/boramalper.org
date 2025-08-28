@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2022-46"
 date: 2022-11-21T09:52:00Z
+categories:
+  - wirtw
 ---
 
 Just because I haven't written anything in the past 23 weeks doesn't mean that I haven't been reading either! Dumping all of them at once: 

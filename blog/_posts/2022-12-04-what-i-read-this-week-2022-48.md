@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2022-48"
 date: 2022-12-04T17:29:00Z
+categories:
+  - wirtw
 ---
 
 **[ChatGPT: Optimizing Language Models for Dialogue](https://openai.com/blog/chatgpt/)**

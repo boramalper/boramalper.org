@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2021-09"
 date: 2021-03-07T00:00:00Z
+categories:
+  - wirtw
 ---
 
 - [As the Insurrection Narrative Crumbles, Democrats Cling to it More Desperately Than Ever](https://greenwald.substack.com/p/as-the-insurrection-narrative-crumbles)

@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2023-01"
 date: 2023-01-08T16:00:00Z
+categories:
+  - wirtw
 ---
 
 **[Every January, Make Two Lists](https://www.raptitude.com/2023/01/every-january-make-two-lists/) by David Cain**

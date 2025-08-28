@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2022-47"
 date: 2022-11-28T12:02:00Z
+categories:
+  - wirtw
 ---
 
 **[Don't Call Yourself A Programmer, And Other Career Advice](https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/) by Patrick McKenzie**

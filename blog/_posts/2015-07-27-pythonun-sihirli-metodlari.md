@@ -41,17 +41,17 @@ Beğenmenizi umuyorum. Onu bir giriş rehberi, bir hafıza tazeleyici, veya bir 
 
 En basit sihirli metod olan `__init__`i herkes bilir. Bir nesnenin hazırlanırkenki davranışını belirleyen metoddur o. Ancak, ben `x = BirSınıf()` yazdığım zaman, ilk çağırılan metod `__init__` değildir. `__new__` adındaki metod ile, nesne _oluşturulduktan_ (yani yaratıldıktan) sonra, yine aynı argümanlar ile `__init__`i çağırılır. Nesnenin ömrünü tamamladığında ise `__del__` metodu devreye girer. Şimdi bu 3 sihirli metoda daha yakından bakalım:
 
-`__new__(cls, [...)`
+### **`__new__(cls, [...)`**
 
-:   Bir nesnenin örneklenmesi (ing: _instantiation_) sırasında çağırılan ilk metod `__new__`dir. İlk argümanı örneklenen sınıf (`cls`), daha sonrakiler ise örnekleme sırasında gönderilen argümanlardır. `__new__`in kullanımı oldukça nadirdir; ancak özellikle `string` veya `tuple` gibi değişmeyen (ing: _immutable_) sınıfların alt-sınıflaması (ing: _subclassing_) sırasında kullanılır. Kullanışlı bir metod olmadığından detaylara girmek istemiyorum, ancak isteyenler için [Python belgelerinde](http://www.python.org/download/releases/2.2/descrintro/#__new__) etraflıca anlatılmış.
+Bir nesnenin örneklenmesi (ing: _instantiation_) sırasında çağırılan ilk metod `__new__`dir. İlk argümanı örneklenen sınıf (`cls`), daha sonrakiler ise örnekleme sırasında gönderilen argümanlardır. `__new__`in kullanımı oldukça nadirdir; ancak özellikle `string` veya `tuple` gibi değişmeyen (ing: _immutable_) sınıfların alt-sınıflaması (ing: _subclassing_) sırasında kullanılır. Kullanışlı bir metod olmadığından detaylara girmek istemiyorum, ancak isteyenler için [Python belgelerinde](http://www.python.org/download/releases/2.2/descrintro/#__new__) etraflıca anlatılmış.
 
-`__init__(self, [...)`
+### **`__init__(self, [...)`**
 
-:   Bir nesnenin oluşturulduktan sonra hazırlanması (ing: _initialization_) için çağırılan metod. İlk argümanı, `__new__` tarafından döndürülen nesnedir (`self`). Diğer argümanlar ise yine örnekleme sırasında gönderilen argümanlardır. Örneğin `x = BirSınıf(4, "şey")` dediğimizde `__init__`, `4` ve `"şey"`i argüman olarak alır. Python'daki sınıf tanımlamalarının hemen hepsinde `__init__` kullanılır.
+Bir nesnenin oluşturulduktan sonra hazırlanması (ing: _initialization_) için çağırılan metod. İlk argümanı, `__new__` tarafından döndürülen nesnedir (`self`). Diğer argümanlar ise yine örnekleme sırasında gönderilen argümanlardır. Örneğin `x = BirSınıf(4, "şey")` dediğimizde `__init__`, `4` ve `"şey"`i argüman olarak alır. Python'daki sınıf tanımlamalarının hemen hepsinde `__init__` kullanılır.
 
-`__del__(self)`
+### **`__del__(self)`**
 
-:   Eğer `__new__` ve `__init__` nesneleri inşa ediyorsa, `__del__` metodu da yıkılmasını sağlar. Zannedilenin aksine, `del nesne` ifadesine karşılık **gelmez** (yani `del nesne` != `nesne.__del__()`); ancak nesne _çöpe_ dönüştüğü zaman (ing: _garbage collected_) çağırılır. Kaldırılma sırasında fazladan temizlemeye gerek duyan (dosya ve soketlerin kapatılması gibi) nesneler için oldukça işe yarar. Ancak **dikkatli olun**, çünkü Python yorumlayıcısı sonlandığı sırada hafızada bulunan nesneler için `__del__` metodunun çağırılacağı garanti edilmez. Aslında, bu yüzden, `__del__` asla kullanılmamalıdır, çünkü ne zaman çağırılacağı belli değildir; dikkatli kullanın!
+Eğer `__new__` ve `__init__` nesneleri inşa ediyorsa, `__del__` metodu da yıkılmasını sağlar. Zannedilenin aksine, `del nesne` ifadesine karşılık **gelmez** (yani `del nesne` != `nesne.__del__()`); ancak nesne _çöpe_ dönüştüğü zaman (ing: _garbage collected_) çağırılır. Kaldırılma sırasında fazladan temizlemeye gerek duyan (dosya ve soketlerin kapatılması gibi) nesneler için oldukça işe yarar. Ancak **dikkatli olun**, çünkü Python yorumlayıcısı sonlandığı sırada hafızada bulunan nesneler için `__del__` metodunun çağırılacağı garanti edilmez. Aslında, bu yüzden, `__del__` asla kullanılmamalıdır, çünkü ne zaman çağırılacağı belli değildir; dikkatli kullanın!
 
 Toparlamak gerekirse, `__init__` ve `__del__`in bir arada olduğu (saçma) bir örnek:
 
@@ -95,33 +95,33 @@ Bu, sihirli metodların gücünün sadece bir kısmı. Sihirli metodları kullan
 
 Tuhaf metod çağrıları yerine Python operatörlerini kullanarak nesneleri karşılaştırabilmemiz için tasarlanmış bol miktardaki sihirli metodu kullanabiliriz. Aynı zamanda, yine aynı metodları kullanarak Python'un varsayılan davranışlarını değiştirebiliriz. Aşağıda bu metodların bir listesi ve ne yaptığı yer alıyor:
 
-`__cmp__(self, diğer)`
+### **`__cmp__(self, diğer)`**
 
-:   `__cmp__` en temel karşılaştırma sihirli metodudur. Kendisi tüm karşılaştırma operatörlerinin(< , ==, != gibi) davranışını sağlayabilir, ancak bu her zaman istediğiniz şekilde olmayabilir (örneğin, eğer bir örneğin diğerine _eşit olmasının koşulu başka, ve diğerinden_ _büyük_ olmasının koşulu başka ise). `__cmp__`; eğer `self < diğer` ise negatif bir sayı, `self == diğer` ise sıfır, `self > diğer` ise pozitif bir sayı döndürmelidir. Genellikle, hepsini tek seferde tanımlamaktansa, gerek duyduğunuz her karşılaştırmayı tek tek tanımlamanız önerilir; ancak eğer karşılaştırma kriterleriniz tüm operatörler için aynı ise, `__cmp__` metodu sizi gereksiz kod tekrarından kuratabilir. **Python 3 ile kaldırılmıştır.**
+`__cmp__` en temel karşılaştırma sihirli metodudur. Kendisi tüm karşılaştırma operatörlerinin(< , ==, != gibi) davranışını sağlayabilir, ancak bu her zaman istediğiniz şekilde olmayabilir (örneğin, eğer bir örneğin diğerine _eşit olmasının koşulu başka, ve diğerinden_ _büyük_ olmasının koşulu başka ise). `__cmp__`; eğer `self < diğer` ise negatif bir sayı, `self == diğer` ise sıfır, `self > diğer` ise pozitif bir sayı döndürmelidir. Genellikle, hepsini tek seferde tanımlamaktansa, gerek duyduğunuz her karşılaştırmayı tek tek tanımlamanız önerilir; ancak eğer karşılaştırma kriterleriniz tüm operatörler için aynı ise, `__cmp__` metodu sizi gereksiz kod tekrarından kuratabilir. **Python 3 ile kaldırılmıştır.**
 
-`__eq__(self, diğer)`
+### **`__eq__(self, diğer)`**
 
-:   Eşitlik operatörünün (`==`) davranışını belirler.
+Eşitlik operatörünün (`==`) davranışını belirler.
 
-`__ne__(self, diğer)`
+### **`__ne__(self, diğer)`**
 
-:   Eşitsizlik operatörünün (`!=`) davranışını belirler.
+Eşitsizlik operatörünün (`!=`) davranışını belirler.
 
-`__lt__(self, diğer)`
+### **`__lt__(self, diğer)`**
 
-:   Küçüktür operatörünün (`<`) davranışını belirler.
+Küçüktür operatörünün (`<`) davranışını belirler.
 
-`__gt__(self, diğer)`
+### **`__gt__(self, diğer)`**
 
-:   Büyüktür operatörünün (`>`) davranışını belirler.
+Büyüktür operatörünün (`>`) davranışını belirler.
 
-`__le__(self, diğer)`
+### **`__le__(self, diğer)`**
 
-:   Küçük-eşit operatörünün (`<=`) davranışını belirler.
+Küçük-eşit operatörünün (`<=`) davranışını belirler.
 
-`__ge__(self, diğer)`
+### **`__ge__(self, diğer)`**
 
-:   Büyük-eşit operatörünün (`>=`) davranışını belirler.
+Büyük-eşit operatörünün (`>=`) davranışını belirler.
 
 Örnek olarak, kelimeleri modelleyen bir sınıf düşünelim. Kelimeleri alfabetik sıraya göre karşılaştırmak isteyebileceğimiz gibi, ki Python'da olan budur, onları bir başka kritere göre de karşılaştırabiliriz, uzunluk veya hece sayısı gibi. Bu örnekte, uzunluklarına göre karşılaştıracağız:
 
@@ -164,97 +164,97 @@ Tıpkı karşılaştırma operatörlerinde olduğu gibi, sayısal operatörlerin
 
 Yalnızca bir tane argüman alan operatörler ve fonksiyonlara (örn: negatifleme, mutlak değer, vs.) _tekli_ denir.
 
-`__pos__(self)`
+#### **`__pos__(self)`**
 
-:   Tekli pozitif operatörünün davranışını belirler. (örn: `+nesne`)
+Tekli pozitif operatörünün davranışını belirler. (örn: `+nesne`)
 
-`__neg__(self)`
+#### **`__neg__(self)`**
 
-:   Tekli negatif operatörünün davranışını belirler. (örn: `-nesne`)
+Tekli negatif operatörünün davranışını belirler. (örn: `-nesne`)
 
-`__abs__(self)`
+#### **`__abs__(self)`**
 
-:   Dahili `abs()` fonksiyonunun davranışını belirler.
+Dahili `abs()` fonksiyonunun davranışını belirler.
 
-`__invert__(self)`
+#### **`__invert__(self)`**
 
-:   Ters çevirme (ing: _invertion_) (nam-ı diğer _değil_ (ing: _not_)) operatörünün (`~`) davranışını belirler. (örn: `~nesne`)
+Ters çevirme (ing: _invertion_) (nam-ı diğer _değil_ (ing: _not_)) operatörünün (`~`) davranışını belirler. (örn: `~nesne`)
 
-`__round__(self, n)`
+#### **`__round__(self, n)`**
 
-:   Dahili `round()` fonksiyonunun davranışını belirler. `n`, virgülden sonraki yuvarlanacak basamak sayısıdır.
+Dahili `round()` fonksiyonunun davranışını belirler. `n`, virgülden sonraki yuvarlanacak basamak sayısıdır.
 
-`__floor__(self)`
+#### **`__floor__(self)`**
 
-:   `math.floor()` fonksiyonunun davranışını belirler; diğer bir deyişle, en yakın tam sayıya aşağı-yuvarlar.
+`math.floor()` fonksiyonunun davranışını belirler; diğer bir deyişle, en yakın tam sayıya aşağı-yuvarlar.
 
-`__ceil__(self)`
+#### **`__ceil__(self)`**
 
-:   `math.ceil()` fonksiyonunun davranışını belirler; diğer bir deyişle, en yakın tam sayıya yukarı-yuvarlar.
+`math.ceil()` fonksiyonunun davranışını belirler; diğer bir deyişle, en yakın tam sayıya yukarı-yuvarlar.
 
-`__trunc__(self)`
+#### **`__trunc__(self)`**
 
-:   `math.trunc()` fonksiyonunun davranışını belirler; diğer bir deyişle, virgülden sonraki kısmı budar.
+`math.trunc()` fonksiyonunun davranışını belirler; diğer bir deyişle, virgülden sonraki kısmı budar.
 
 #### Normal aritmetik operatörleri
 
 Şimdi tipik iki argümanlı operatörleri (ve bikaç fonksiyonu) işleyeceğiz: `+`, `-`, `*` ve benzeri. Pek çoğu izaha gerek duymayan türden.
 
-`__add__(self, diğer)`
+##### **`__add__(self, diğer)`**
 
-:   Toplamayı belirler. (örn: `nesne + diğer`)
+Toplamayı belirler. (örn: `nesne + diğer`)
 
-`__sub__(self, diğer)`
+##### **`__sub__(self, diğer)`**
 
-:   Çıkarmayı belirler. (örn: `nesne - diğer`)
+Çıkarmayı belirler. (örn: `nesne - diğer`)
 
-`__mul__(self, diğer)`
+##### **`__mul__(self, diğer)`**
 
-:   Çarpmayı belirler. (örn: `nesne * diğer`)
+Çarpmayı belirler. (örn: `nesne * diğer`)
 
-`__floordiv__(self, diğer)`
+##### **`__floordiv__(self, diğer)`**
 
-:   `//` operatörü kullanılarak, tam sayı bölme işlemini belirler. (örn: `nesne // diğer`)
+`//` operatörü kullanılarak, tam sayı bölme işlemini belirler. (örn: `nesne // diğer`)
 
-`__div__(self, diğer)`
+##### **`__div__(self, diğer)`**
 
-:   Python 2'de `/` operatörü ile bölme işlemini belirler. (örn: `nesne / diğer`)
+Python 2'de `/` operatörü ile bölme işlemini belirler. (örn: `nesne / diğer`)
 
-`__truediv__(self, diğer)`
+##### **`__truediv__(self, diğer)`**
 
-:   Python 2'de, `from __future__ import division` ifadesi geçerliyken, Python 3'te ise varsayılan olarak, `/` operatörü kullanıldığında `__truediv__` çağırılır. (örn: `nesne / diğer`)
+Python 2'de, `from __future__ import division` ifadesi geçerliyken, Python 3'te ise varsayılan olarak, `/` operatörü kullanıldığında `__truediv__` çağırılır. (örn: `nesne / diğer`)
 
-`__mod__(self, diğer)`
+##### **`__mod__(self, diğer)`**
 
-:   Mod alma operatörünü (`%`) belirler. (örn: `nesne % diğer`)
+Mod alma operatörünü (`%`) belirler. (örn: `nesne % diğer`)
 
-`__divmod__(self, diğer)`
+##### **`__divmod__(self, diğer)`**
 
-:   Dahili `divmod()` fonksiyonunu belirler. (örn: `divmod(nesne, diğer)`)
+Dahili `divmod()` fonksiyonunu belirler. (örn: `divmod(nesne, diğer)`)
 
-`__pow__(self, üs)`
+##### **`__pow__(self, üs)`**
 
-:   Üs alma operatörünün (`**`) davranışını belirler. (örn: `nesne ** üs`)
+Üs alma operatörünün (`**`) davranışını belirler. (örn: `nesne ** üs`)
 
-`__lshift__(self, diğer)`
+##### **`__lshift__(self, diğer)`**
 
-:   Sola bit kaydırma operatörünün (`<<`) davranışını belirler. (örn: `nesne << diğer`)
+Sola bit kaydırma operatörünün (`<<`) davranışını belirler. (örn: `nesne << diğer`)
 
-`__rshift__(self, diğer)`
+##### **`__rshift__(self, diğer)`**
 
-:   Sağa bit kaydırma operatörünün (`>>`) davranışını belirler. (örn: `nesne >> diğer`)
+Sağa bit kaydırma operatörünün (`>>`) davranışını belirler. (örn: `nesne >> diğer`)
 
-`__and__(self, diğer)`
+##### **`__and__(self, diğer)`**
 
-:   Bitsel _ve_ (`&`) operatörünün davranışını belirler. (örn: `nesne & diğer`)
+Bitsel _ve_ (`&`) operatörünün davranışını belirler. (örn: `nesne & diğer`)
 
-`__or__(self, diğer)`
+##### **`__or__(self, diğer)`**
 
-:   Bitsel _veya_ (`|`) operatörünün davranışını belirler. (örn: `nesne | diğer`)
+Bitsel _veya_ (`|`) operatörünün davranışını belirler. (örn: `nesne | diğer`)
 
-`__xor__(self, diğer)`
+##### **`__xor__(self, diğer)`**
 
-:   Bitsel _ayrıcalı veya_ operatörünün (`^`) davranışını belirler. (örn: `nesne ^ diğer`)
+Bitsel _ayrıcalı veya_ operatörünün (`^`) davranışını belirler. (örn: `nesne ^ diğer`)
 
 #### Ters aritmetik operatörleri
 
@@ -287,33 +287,33 @@ Birleşik atama metodları, normal aritmetik metodlarının başına &#8216;i' h
 
 Python, dahili tür dönüşüm fonskiyonları (`float()`, `str()` gibi) için de tanımlanmış olan çeşitli sihirli metodlara sahiptir:
 
-`__int__(self)`
+##### **`__int__(self)`**
 
-:   Dahili `int()` fonksiyonunun davranışını belirler. Döndürülen değer, `int` sınıfının bir örneği olmak zorundadır. (örn: `int(nesne)`)
+Dahili `int()` fonksiyonunun davranışını belirler. Döndürülen değer, `int` sınıfının bir örneği olmak zorundadır. (örn: `int(nesne)`)
 
-`__long__(self)`
+##### **`__long__(self)`**
 
-:   `long` türüne dönüşümü tanımlar. **Python 3 ile kaldırılmıştır.** (örn: `long(nesne)`)
+`long` türüne dönüşümü tanımlar. **Python 3 ile kaldırılmıştır.** (örn: `long(nesne)`)
 
-`__float__(self)`
+##### **`__float__(self)`**
 
-:   Dahili `float()` fonksiyonunun davranışını belirler. Döndürülen değer, `float` sınıfının bir örneği olmak zorundadır. (örn: `float(nesne)`)
+Dahili `float()` fonksiyonunun davranışını belirler. Döndürülen değer, `float` sınıfının bir örneği olmak zorundadır. (örn: `float(nesne)`)
 
-`__complex__(self)`
+##### **`__complex__(self)`**
 
-:   Dahili `complex()` fonksiyonunun davranışını belirler. Döndürülen değer, `complex` sınıfının bir örneği olmak zorundadır. **Python 2'de desteklenmez.** (örn: `complex(nesne)`)
+Dahili `complex()` fonksiyonunun davranışını belirler. Döndürülen değer, `complex` sınıfının bir örneği olmak zorundadır. **Python 2'de desteklenmez.** (örn: `complex(nesne)`)
 
-`__oct__(self)`
+##### **`__oct__(self)`**
 
-:   Dahili `oct()` fonksiyonunun davranışını belirler. **Herhangi bir değer döndürebilir!** **Python 3'te desteklenmez.** (örn: `oct(nesne)`)
+Dahili `oct()` fonksiyonunun davranışını belirler. **Herhangi bir değer döndürebilir!** **Python 3'te desteklenmez.** (örn: `oct(nesne)`)
 
-`__hex__(self)`
+##### **`__hex__(self)`**
 
-:   Dahili `hex()` fonksiyonunun davranışını belirler. Döndürülen değer, `str` sınıfının bir örneği olmak zorundadır. **Python 3'te desteklenmez.** (örn: `hex(nesne)`)
+Dahili `hex()` fonksiyonunun davranışını belirler. Döndürülen değer, `str` sınıfının bir örneği olmak zorundadır. **Python 3'te desteklenmez.** (örn: `hex(nesne)`)
 
-`__index__(self)`
+##### **`__index__(self)`**
 
-:   Dilim ifadesi (ing: _slice expression_) içerisinde kullanılan bir nesnenin, `int` türüne dönüşümünü belirler. Örnek:
+Dilim ifadesi (ing: _slice expression_) içerisinde kullanılan bir nesnenin, `int` türüne dönüşümünü belirler. Örnek:
 
 ```python
 nesne = BirSınıf()
@@ -321,9 +321,9 @@ l = [0, 1, 2, 3, 4]
 l[1:nesne] # ⇒ l[1:nesne.__index__()]
 ```
 
-`__coerce__(self, diğer)`
+##### **`__coerce__(self, diğer)`**
 
-:   Dahili `coerce()` fonksiyonunun davranışını belirler. Farklı türdeki sayıları aynı türe çevirmek için kullanılır. Eğer tür dönüşümü mümkün değilse `None`; mümkün ise, aynı türe dönüştürülmüş, sırasıyla `self` ve `diğer`i içeren bir demet (`tuple`) döndürür. Tür dönüşümü sırasında veri kaybı yaşanmamasına dikkat edilmelidir (`float` türünü `int`e dönüştürmek yerine tam tersinin yapılması gibi).
+Dahili `coerce()` fonksiyonunun davranışını belirler. Farklı türdeki sayıları aynı türe çevirmek için kullanılır. Eğer tür dönüşümü mümkün değilse `None`; mümkün ise, aynı türe dönüştürülmüş, sırasıyla `self` ve `diğer`i içeren bir demet (`tuple`) döndürür. Tür dönüşümü sırasında veri kaybı yaşanmamasına dikkat edilmelidir (`float` türünü `int`e dönüştürmek yerine tam tersinin yapılması gibi).
 
 ```python
 sayı = Sayı(42)
@@ -342,41 +342,41 @@ print(sonuç2) # (3.14159265, 42.0)
 
 Genellikle sınıflarınızın bir _string_ gösteriminin olması oldukça yararlıdır. Python'da, sınıfların gösterimiyle ilgili dahili fonksiyonların nasıl davranacağını belirleyen metodlar mevcuttur.
 
-`__str__(self)`
+### **`__str__(self)`**
 
-:   Dahili `str()` fonksiyonunun davranışunı belirler. (Bu metodu _Tür dönüşümleri_ başlığında da ele alabilirdik.) (örn: `str(nesne)`)
+Dahili `str()` fonksiyonunun davranışunı belirler. (Bu metodu _Tür dönüşümleri_ başlığında da ele alabilirdik.) (örn: `str(nesne)`)
 
-`__repr__(self)`
+### **`__repr__(self)`**
 
-:   Dahili `repr()` fonksiyonunun davranışını belirler. `str()` ile `repr()` arasındaki en büyük fark, iki fonksiyonun hedef kitlesidir. `repr()` fonksiyonunun çıktısı (çoğunlukla) makine tarafından okunabilir (ing: _machine-readable_) (ki hatta geçerli bir Python kodu dahi olabilir bu); ancak `str()` çıktısının insanlar tarafından okunması hedeflenmiştir. (örn: `repr(nesne)`)
+Dahili `repr()` fonksiyonunun davranışını belirler. `str()` ile `repr()` arasındaki en büyük fark, iki fonksiyonun hedef kitlesidir. `repr()` fonksiyonunun çıktısı (çoğunlukla) makine tarafından okunabilir (ing: _machine-readable_) (ki hatta geçerli bir Python kodu dahi olabilir bu); ancak `str()` çıktısının insanlar tarafından okunması hedeflenmiştir. (örn: `repr(nesne)`)
 
-`__unicode__(self)`
+### **`__unicode__(self)`**
 
-:   `__str__` fonksiyonu gibi bunu da _Tür dönüşümleri_ başlığında ele alabilirdik. Kendisi, dahili `unicode()` fonksiyonunun davranışını belirler. `__str__()` ile aynı hedefi taşısa da, Python 2'deki `str`&#8211;`unicode` türleri ararasındaki farktan doğmuş olup, **Python 3 ile kaldırılmıştır**. (örn: `unicode(nesne)`)
+`__str__` fonksiyonu gibi bunu da _Tür dönüşümleri_ başlığında ele alabilirdik. Kendisi, dahili `unicode()` fonksiyonunun davranışını belirler. `__str__()` ile aynı hedefi taşısa da, Python 2'deki `str`&#8211;`unicode` türleri ararasındaki farktan doğmuş olup, **Python 3 ile kaldırılmıştır**. (örn: `unicode(nesne)`)
 
-`__bytes__(self)`
+### **`__bytes__(self)`**
 
-:   Dahili `bytes()` fonksiyonunun davranışını belirler. Python 2'deki dahili `str` türünün Python 3'teki karşılığıdır. **Python 3 ile eklenmiştir.**
+Dahili `bytes()` fonksiyonunun davranışını belirler. Python 2'deki dahili `str` türünün Python 3'teki karşılığıdır. **Python 3 ile eklenmiştir.**
 
-`__format__(self, formatstr)`
+### **`__format__(self, formatstr)`**
 
-:   Sınıfınızın örneği, [yeni usül string biçimlendirme](http://pyformat.info/)de (`.format()`) kullanıldığındaki davranışı belirler. Örneğin, `"Merhaba, {:bicim}!".format(nesne)` ifadesi `nesne.__format__("bicim")` şeklindeki bir çağrıya neden olacak, döndürülen sonuç da `{:bicim}` kısmının yerine geçecektir.
+Sınıfınızın örneği, [yeni usül string biçimlendirme](http://pyformat.info/)de (`.format()`) kullanıldığındaki davranışı belirler. Örneğin, `"Merhaba, {:bicim}!".format(nesne)` ifadesi `nesne.__format__("bicim")` şeklindeki bir çağrıya neden olacak, döndürülen sonuç da `{:bicim}` kısmının yerine geçecektir.
 
-`__hash__(self)`
+### **`__hash__(self)`**
 
-:   Dahili `hash()` fonksiyonunun davranışını belirler. Bir tam sayı (`int`) döndürmek zorundadır; döndürülen sonuç, sözlüklerde (`dict`) hızlıca anahtar karşılaştırılması yapmak için kullanılır. Bu da genelde `__eq__` metodunun da tanımlanmasını gerektirir. Unutmayın ki, `a == b` demek `hash(a) == hash(b)` ifadesinin doğru olmasını gerektirir. **Python, varsayılan olarak tanımlar.**
+Dahili `hash()` fonksiyonunun davranışını belirler. Bir tam sayı (`int`) döndürmek zorundadır; döndürülen sonuç, sözlüklerde (`dict`) hızlıca anahtar karşılaştırılması yapmak için kullanılır. Bu da genelde `__eq__` metodunun da tanımlanmasını gerektirir. Unutmayın ki, `a == b` demek `hash(a) == hash(b)` ifadesinin doğru olmasını gerektirir. **Python, varsayılan olarak tanımlar.**
 
-`__nonzero__(self)`
+### **`__nonzero__(self)`**
 
-:   Dahili `bool()` fonskiyonunun davranışını belirler. `True` veya `False` döndürmelidir. Bunu nasıl belirleyeceğiniz size kalmış. **Python 3'te ismi `__bool__` olarak değiştirilmiştir.** (örn: `bool(nesne)`)
+Dahili `bool()` fonskiyonunun davranışını belirler. `True` veya `False` döndürmelidir. Bunu nasıl belirleyeceğiniz size kalmış. **Python 3'te ismi `__bool__` olarak değiştirilmiştir.** (örn: `bool(nesne)`)
 
-`__dir__(self)`
+### **`__dir__(self)`**
 
-:   Dahili `dir()` fonksiyonunun davranışını belirler. Bu metod, nesnenin sahip olduğu niteliklerin (ing: _attributes_) listesini döndürür. Python, varsayılan olarak tanımladığı için bunu tekrardan tanımlamak gereksiz olabilir, ancak (bir sonraki bölümde göreceğiniz)`__getattr__` ya da `__getattribute__` metodlarından birini tanımlamışsanız veya nitelikleri dinamik olarak başka bir yolla oluşturuyorsanız gerekli olabilir. (örn: `dir(nesne)`)
+Dahili `dir()` fonksiyonunun davranışını belirler. Bu metod, nesnenin sahip olduğu niteliklerin (ing: _attributes_) listesini döndürür. Python, varsayılan olarak tanımladığı için bunu tekrardan tanımlamak gereksiz olabilir, ancak (bir sonraki bölümde göreceğiniz)`__getattr__` ya da `__getattribute__` metodlarından birini tanımlamışsanız veya nitelikleri dinamik olarak başka bir yolla oluşturuyorsanız gerekli olabilir. (örn: `dir(nesne)`)
 
-`__sizeof__(self)`
+### **`__sizeof__(self)`**
 
-:   `sys.getsizeof()` fonksiyonunun davranışını belirler. Nesnenizin kaç byte boyutunda olduğunu döndürmelidir. Daha çok C ile yazılmış Python sınıfları için kullanılır; ancak farkında olmanız iyi olabilir. (örn: `sys.getsizeof(nesne)`)
+`sys.getsizeof()` fonksiyonunun davranışını belirler. Nesnenizin kaç byte boyutunda olduğunu döndürmelidir. Daha çok C ile yazılmış Python sınıfları için kullanılır; ancak farkında olmanız iyi olabilir. (örn: `sys.getsizeof(nesne)`)
 
 * * *
 
@@ -386,21 +386,21 @@ Rehberimizini sıkıcı kısımlarını bitirdik sayılır. Şimdi temel sihirli
 
 Python'a başka dillerden geçmiş pek çok kişi, Python sınıflarının sarmalamayı (ing: _encapsulation_) gerçekten desteklememesinden yakınır; yani, özel (ing: _private_) niteliklerin (ing: _attribute_) ve onlara erişmek için açık (ing: _public_) erişim metodlarının (ing: _getters and setters_) tanımlanamayışından. Doğrudan bu kadar uzak olunamazdı! Python sarmalamanın büyük kısmını, fazladan erişim metodları ile değil, &#8220;sihir&#8221; ile gerçekleştirmektedir. Bakınız:
 
-`__getattr__(self, nitelik)`
+### **`__getattr__(self, nitelik)`**
 
-:   Kullanıcı (henüz veya asla) varolmayan bir niteliğe erişmeye çalıştığındaki davranışı belirler. Bu, sık karşılaşılan yazım hatalarını yakalamak ve düzeltmek, kullanılmasına karşı çıkılmış (ing: _deprecated_) nitelikler hakkında uyarı vermek (ancak isterseniz uyarıdan sonra işleme devam edebilirsiniz), veya `AttributeError` hatasını farklı şekillerde işlemek için kullanabilirsiniz. Yalnızca var olmayan nitelikler için çağırıldığından, gerçek bir sarmalama çözümü değildir.
+Kullanıcı (henüz veya asla) varolmayan bir niteliğe erişmeye çalıştığındaki davranışı belirler. Bu, sık karşılaşılan yazım hatalarını yakalamak ve düzeltmek, kullanılmasına karşı çıkılmış (ing: _deprecated_) nitelikler hakkında uyarı vermek (ancak isterseniz uyarıdan sonra işleme devam edebilirsiniz), veya `AttributeError` hatasını farklı şekillerde işlemek için kullanabilirsiniz. Yalnızca var olmayan nitelikler için çağırıldığından, gerçek bir sarmalama çözümü değildir.
 
-`__setattr__(self, nitelik, değer)`
+### **`__setattr__(self, nitelik, değer)`**
 
-:   `__getattr__`ın aksine, `__setattr__` gerçek bir sarmalama çözümüdür. Nitelik var olsun veya olmasın, bir atama işleminin (`nesne.nitelik = değer` ⇒ `nesne.__setattr__(nitelik, değer)`) davranışını belirler, ki bu da nitelikler için özel kurallar belirleyebilmeniz anlamına gelir. Ancak listenin sonunda göstereceğimiz üzere, `__setattr__`ı kullanırken dikkatli olmalısınız.
+`__getattr__`ın aksine, `__setattr__` gerçek bir sarmalama çözümüdür. Nitelik var olsun veya olmasın, bir atama işleminin (`nesne.nitelik = değer` ⇒ `nesne.__setattr__(nitelik, değer)`) davranışını belirler, ki bu da nitelikler için özel kurallar belirleyebilmeniz anlamına gelir. Ancak listenin sonunda göstereceğimiz üzere, `__setattr__`ı kullanırken dikkatli olmalısınız.
 
-`__delattr__(self, nitelik)`
+### **`__delattr__(self, nitelik)`**
 
-:   `__setattr__` ile tıpatıp aynıdır, ancak bu metod niteliklerin silinmesi sırasında çağırılır. `__setattr__`da olduğu gibi bunda da önlemler alınmazsa (`__delattr__` metodunun içinde `del self.name` çağrısı yapmak gibi örneğin) sonsuz özyineleme içine girebilirsiniz.
+`__setattr__` ile tıpatıp aynıdır, ancak bu metod niteliklerin silinmesi sırasında çağırılır. `__setattr__`da olduğu gibi bunda da önlemler alınmazsa (`__delattr__` metodunun içinde `del self.name` çağrısı yapmak gibi örneğin) sonsuz özyineleme içine girebilirsiniz.
 
-`__getattribute__(self, nitelik)`
+### **`__getattribute__(self, nitelik)`**
 
-:   Bütün bu anlattıklarımızdan sonra, `__getattribute__`, arkadaşları `__setattr__` ve `__delattr__` ile birbirlerini tamamlıyor; ancak kullanmanızı önermiyorum; çünkü var olsun veya olmasın, ne zaman bir niteliğe erişilmek istense bu metod çağrılır. `__getattribute__` yalnızca yeni-biçim sınıflarla (ing: _new-style classes_) kullanılabiliyor (Python 2'de yeni-biçim sınıf oluşturmak için `object` sınıfını miras almanız gerekir, Python 3'te tüm sınıflar yeni-biçimdir). Suç ortakları (`__setattr__` ve `__delattr__`) gibi sonsuz özyineleme sorunlarından muzdariptir; bunu aşmak için, üst-sınıfınızın (ing: _base class_) `__getattrbiute__` metodunu çağırabilirsiniz (şimdi neden yeni-biçim sınıflarla çalıştığını anladınız&#8230;). Aynı çözüm `__setattr__` ve `__delattr__` için de geçerlidir.
+Bütün bu anlattıklarımızdan sonra, `__getattribute__`, arkadaşları `__setattr__` ve `__delattr__` ile birbirlerini tamamlıyor; ancak kullanmanızı önermiyorum; çünkü var olsun veya olmasın, ne zaman bir niteliğe erişilmek istense bu metod çağrılır. `__getattribute__` yalnızca yeni-biçim sınıflarla (ing: _new-style classes_) kullanılabiliyor (Python 2'de yeni-biçim sınıf oluşturmak için `object` sınıfını miras almanız gerekir, Python 3'te tüm sınıflar yeni-biçimdir). Suç ortakları (`__setattr__` ve `__delattr__`) gibi sonsuz özyineleme sorunlarından muzdariptir; bunu aşmak için, üst-sınıfınızın (ing: _base class_) `__getattrbiute__` metodunu çağırabilirsiniz (şimdi neden yeni-biçim sınıflarla çalıştığını anladınız&#8230;). Aynı çözüm `__setattr__` ve `__delattr__` için de geçerlidir.
 
 Nitelik erişim metodlarını kullanırken hataya düşmek çok kolaydır. Şu örneğe bakınız:
 
@@ -459,36 +459,36 @@ Neden şimdi protokollerden bahsediyoruz ki? Çünkü Python'daki özel _contain
 
 Daha fazla beklemeden, işte karşınızda container'ların kullandığı sihirli metodlar:
 
-`__len__(self)`
-:   Container'ın uzunluğunu (diğer bir deyişle içerdiği eleman sayısını) döndürür. Değişir ve değişmez container protokollerinin bir parçasıdır.
+#### **`__len__(self)`**
+Container'ın uzunluğunu (diğer bir deyişle içerdiği eleman sayısını) döndürür. Değişir ve değişmez container protokollerinin bir parçasıdır.
 
-`__getitem__(self, anahtar)`
+#### **`__getitem__(self, anahtar)`**
 
-:   `self[key]` ifadesi kullanılarak bir elemana erişildiğindeki davranışı belirler. Bu da değişir ve değişmez container protokollerinin bir parçasıdır. Ayrıca bir hata olması durumunda uygun _exception_&#8216;ları yükseltmelidir (ing: _raise_): Eğer anahtarın (ing: _key_) türü yanlışsa `TypeError`, anahtara karşılık gelen bir değer yoksa `KeyError` yükseltilmelidir.
+`self[key]` ifadesi kullanılarak bir elemana erişildiğindeki davranışı belirler. Bu da değişir ve değişmez container protokollerinin bir parçasıdır. Ayrıca bir hata olması durumunda uygun _exception_&#8216;ları yükseltmelidir (ing: _raise_): Eğer anahtarın (ing: _key_) türü yanlışsa `TypeError`, anahtara karşılık gelen bir değer yoksa `KeyError` yükseltilmelidir.
 
-`__setitem__(self, anahtar, değer)`
+#### **`__setitem__(self, anahtar, değer)`**
 
-:   `self[key] = value` ifadesi kullanılarak bir elemana atama yapıldığındaki davranışı belirler. Yalnızca, değişir container protokolünün bir parçasıdır. Yine gerekli durumlarda `KeyError` ve `TypeError` yükseltilmelidir.
+`self[key] = value` ifadesi kullanılarak bir elemana atama yapıldığındaki davranışı belirler. Yalnızca, değişir container protokolünün bir parçasıdır. Yine gerekli durumlarda `KeyError` ve `TypeError` yükseltilmelidir.
 
-`__delitem__(self, anahtar)`
+#### **`__delitem__(self, anahtar)`**
 
-:   `del self[key]` ifadesi kullanılarak bir eleman silindiğindeki davranışı belirler. Yalnızca, değişir container protokolünün bir parçasıdır. Yine gerekli durumlarda, gerekli exception'lar yükseltilmelidir.
+`del self[key]` ifadesi kullanılarak bir eleman silindiğindeki davranışı belirler. Yalnızca, değişir container protokolünün bir parçasıdır. Yine gerekli durumlarda, gerekli exception'lar yükseltilmelidir.
 
-`__iter__(self)`
+#### **`__iter__(self)`**
 
-:   Container için bir yineleyici döndürür. Bu dahili `iter()` fonksiyonunun davranışını belirlediği gibi, `for x in container` türündeki döngülerde de kullanılır. Yineleyiciler, kendi başına bir nesnedir, ve bu nesne, kendi kendini döndüren (`return self`) bir `__iter__` metoduna, ve bir sonraki elemanı döndüren `__next__` metoduna sahip olmalıdır.
+Container için bir yineleyici döndürür. Bu dahili `iter()` fonksiyonunun davranışını belirlediği gibi, `for x in container` türündeki döngülerde de kullanılır. Yineleyiciler, kendi başına bir nesnedir, ve bu nesne, kendi kendini döndüren (`return self`) bir `__iter__` metoduna, ve bir sonraki elemanı döndüren `__next__` metoduna sahip olmalıdır.
 
-`__reversed__(self)`
+#### **`__reversed__(self)`**
 
-:   Dahili `reversed()` fonksiyonunun davranışını belirler. Dizinin ters çevrilmiş halini döndürmelidir. Bu metodu yalnızca eğer diziniz sıralıysa (`list` ya da `tuple` gibi) tanımlayın.
+Dahili `reversed()` fonksiyonunun davranışını belirler. Dizinin ters çevrilmiş halini döndürmelidir. Bu metodu yalnızca eğer diziniz sıralıysa (`list` ya da `tuple` gibi) tanımlayın.
 
-`__contains__(self, eleman)`
+#### **`__contains__(self, eleman)`**
 
-:   `in` ve `not in` sözcükleri ile yapılan aidiyet sorgularının davranışını belirler. Bunun neden dizi protokolünün bir parçası olmadığını sorabilirsiniz: bu metod tanımlı değil ise, Python yineleyiciyi yineleyerek tek tek bakar ve eğer bulursa `True` döndürür.
+`in` ve `not in` sözcükleri ile yapılan aidiyet sorgularının davranışını belirler. Bunun neden dizi protokolünün bir parçası olmadığını sorabilirsiniz: bu metod tanımlı değil ise, Python yineleyiciyi yineleyerek tek tek bakar ve eğer bulursa `True` döndürür.
 
-`__missing__(self, anahtar)`
+#### **`__missing__(self, anahtar)`**
 
-:   `__missing__` metodu `dict` sınıfının alt-sınıfları tarafından kullanılır. Erişilen anahtarın sözlükte bulunmaması halinde bu metod çağırılır (örneğin bir `s` sözlüğü için eğer sözlükte `deneme` anahtarı yer almıyorsa, `d["deneme"]` ifadesi `d.__missing__("anahtar")` haline gelir).
+`__missing__` metodu `dict` sınıfının alt-sınıfları tarafından kullanılır. Erişilen anahtarın sözlükte bulunmaması halinde bu metod çağırılır (örneğin bir `s` sözlüğü için eğer sözlükte `deneme` anahtarı yer almıyorsa, `d["deneme"]` ifadesi `d.__missing__("anahtar")` haline gelir).
 
 ## Tür İncelemeleri
 
@@ -502,8 +502,8 @@ Bazılarınızın çoktan bilebileceği üzere, Python'da fonksiyonlar birinci s
 
 Python'daki özel bir sihirli metod, sınıflarınızın örneklerinin tıpkı fonksiyonlar gibi çağırılabilmesini sağlar, böylece onları &#8220;çağırabilirsiniz&#8221; (ing: _call_). Bu da Python'da programlamayı çok daha zevkli yapar!
 
-`__call__(self, [argümanlar...])`
-:   Bir sınıfın herhangi bir örneğinin fonksiyonlar gibi çağırılabilmesini sağlar. Temel olarak, bu `nesne(argüman)` çağrısının `nesne.__call__(argüman)` olması demektir.
+### **`__call__(self, [argümanlar...])`**
+Bir sınıfın herhangi bir örneğinin fonksiyonlar gibi çağırılabilmesini sağlar. Temel olarak, bu `nesne(argüman)` çağrısının `nesne.__call__(argüman)` olması demektir.
 
 `__call__` metodu, sıkça durum değiştiren örnekler için kullanışlı olabilir. Bir örneği &#8220;çağırmak&#8221; onun durumunu değiştirmenin sezgisel ve temiz bir yoludur. Düzlemdeki bir noktayı ele alalım:
 
@@ -534,13 +534,13 @@ with open("metin.txt") as dosya:
 
 Bağlam yöneticileri, hazırlama (ing: _initialization_ veya _setup_) ve temizleme (ing: _destruction_ veya _cleanup_) işlemlerini otomatik olarak hallederler. Bu işlemlerin nasıl yapılacağı iki sihirli metod ile belirlenebilir:
 
-`__enter__(self)`
+### **`__enter__(self)`**
 
-:   `with` bloğunun başında yapılması gerekenleri belirler. Döndürülen değer, `with` ifadesinin _hedefine_ (diğer bir deyişle, `as` sözcüğünden sonraki değişkene) atanır.
+`with` bloğunun başında yapılması gerekenleri belirler. Döndürülen değer, `with` ifadesinin _hedefine_ (diğer bir deyişle, `as` sözcüğünden sonraki değişkene) atanır.
 
-`__exit__(self, exception_türü, exception_değeri, traceback)`
+### **`__exit__(self, exception_türü, exception_değeri, traceback)`**
 
-:   `with` bloğundan çıkılırkenki davranışı belirler. _Exception_ları idare etmeli, yıkımı/temizliği gerçekleştirmeli (açık olan dosya ve soketleri kapatmak gibi), kısacası `with` bloğu sona erdiğinde yapılması gereken ne varsa yapmalıdır. Eğer blok başarıyla çalıştırılmışsa, `exception_türü`, `exception_değeri` ve `traceback` argümanları `None`dır. Değilse, _exception_ları kendiniz idare edebileceğiniz gibi (bu durumda `True` döndürürsünüz), `False` döndürerek topu kullanıcıya da atabilirsiniz (eğer bir hata oluşmadığı halde `False` döndürülürse, Python bunu sorun etmez!).
+`with` bloğundan çıkılırkenki davranışı belirler. _Exception_ları idare etmeli, yıkımı/temizliği gerçekleştirmeli (açık olan dosya ve soketleri kapatmak gibi), kısacası `with` bloğu sona erdiğinde yapılması gereken ne varsa yapmalıdır. Eğer blok başarıyla çalıştırılmışsa, `exception_türü`, `exception_değeri` ve `traceback` argümanları `None`dır. Değilse, _exception_ları kendiniz idare edebileceğiniz gibi (bu durumda `True` döndürürsünüz), `False` döndürerek topu kullanıcıya da atabilirsiniz (eğer bir hata oluşmadığı halde `False` döndürülürse, Python bunu sorun etmez!).
 
 `__enter__` ve `__exit__` metodları, inşa ve yıkım süreçleri iyi belirlenmiş sınıflar için yararlı olabilir. Bu metodları, ayrıca genel bağlam yöneticileri oluşturmak için de kullanabilirsiniz. Örneğin:
 
@@ -618,17 +618,17 @@ Descriptor'lar, üzerinde okuma (ing: _get_), atama (ing: _set_), ve silme (ing:
 
 Descriptor olabilmesi için, bir sınıfın `__get__`, `__set__` ve `__delete__` metodlarından en az birini tanımlamış olması gerekir.
 
-`__get__(self, örnek, sahip)`
+### **`__get__(self, örnek, sahip)`**
 
-:   Descriptor'un değeri okunduğundaki davranışı belirler. `örnek`, descriptor'u içeren nesnedir. `sahip` de `örnek`in sınfı, diğer bir deyişle descriptor'u içeren sınıftır.
+Descriptor'un değeri okunduğundaki davranışı belirler. `örnek`, descriptor'u içeren nesnedir. `sahip` de `örnek`in sınfı, diğer bir deyişle descriptor'u içeren sınıftır.
 
-`__set__(self, örnek, değer)`
+### **`__set__(self, örnek, değer)`**
 
-:   Descriptor'un değeri değiştindeki (atama) davranışı belirler. `değer`, descriptor'a atanmak istenen değerdir.
+Descriptor'un değeri değiştindeki (atama) davranışı belirler. `değer`, descriptor'a atanmak istenen değerdir.
 
-`__delete__(self, örnek)`
+### **`__delete__(self, örnek)`**
 
-:   Descriptor'un değeri silindiğindeki davranışı belirler.
+Descriptor'un değeri silindiğindeki davranışı belirler.
 
 Şimdi sırada descriptor'ların kullanışlı bir uygulaması var: ölçüm birimi dönüşümleri.
 
@@ -664,13 +664,13 @@ class Mesafe:
 
 Bazen, özellile de değişir nesnelerle çalışırken, bir nesneyi kopyalayıp, kopyasını oluşturduğunuz nesneyi değiştirmemek isteyebilirsiniz. Python'un [`copy`](https://docs.python.org/3/library/copy.html)&#8216;si işte burada devreye giriyor. Ancak (şanslıyız ki), Python modülleri hissetmekten yoksun da, bir Linux-tabanlı robot devriminden korkmamıza gerek yok; ancak Python'a şeyleri nasıl verimli bir şekilde kopyalayacağını söylememiz gerek.
 
-`__copy__(self)`
-:   `copy.copy()` fonksiyonunun davranışını belirler. `copy.copy()`, nesnenizin _sığ kopyasını_ (ing: _shallow copy_) döndürür, yani döndürülen şey yepyeni bir nesne olmasına karşın, nitelikleri, kopyası alınan nesne ile aynı olabilir.
+### **`__copy__(self)`**
+`copy.copy()` fonksiyonunun davranışını belirler. `copy.copy()`, nesnenizin _sığ kopyasını_ (ing: _shallow copy_) döndürür, yani döndürülen şey yepyeni bir nesne olmasına karşın, nitelikleri, kopyası alınan nesne ile aynı olabilir.
 
 Diğer bir deyişle: Python'da niteliklerin bir nesneyi _tuttuğunu_ (veya _içerdiğini_) değil, ona _işaret ettiğini_ (ing: _point_ veya _reference_) unutmayınız. Bu da yeni bir nesne oluşturmamıza karşın, yeni nesnenin niteliklerinin, eski nesnenin niteliklerinin işaret ettiği ile aynı nesnelere işaret ettiği anlamına gelir. Tam olarak ifade etsem de, anlaşılabilirlikten uzak olduğunun farkındayım, ama deneye deneye çok rahat bir şekilde anlayabilirsiniz.
 
-`__deepcopy__(self, memodict={})`
-:   `copy.deepcopy()` fonksiyonunun davranışını belirler. `copy.deepcopy()`, nesnenizin _derin kopyasını_ (ing: _deep copy_) döndürür, yani döndürülen nesne yenidir, ve nitelikleri de yeni oluşturulmuş nesnelere işaret eder. `memodict` argümanı daha önce kopyalanmış nesneleri depolamak için kullanılır; bu süreci optimize ettiği gibi sonsuz öz-yinelemeleri de önlemek için gerekli olabilir. Bir niteliği ayrıca derin-kopyalamak istediğinizde, o nitelik üzerinde `copy.deepcopy()` fonksiyonunu, `memodict`i kullanarak çağırın.
+### **`__deepcopy__(self, memodict={})`**
+`copy.deepcopy()` fonksiyonunun davranışını belirler. `copy.deepcopy()`, nesnenizin _derin kopyasını_ (ing: _deep copy_) döndürür, yani döndürülen nesne yenidir, ve nitelikleri de yeni oluşturulmuş nesnelere işaret eder. `memodict` argümanı daha önce kopyalanmış nesneleri depolamak için kullanılır; bu süreci optimize ettiği gibi sonsuz öz-yinelemeleri de önlemek için gerekli olabilir. Bir niteliği ayrıca derin-kopyalamak istediğinizde, o nitelik üzerinde `copy.deepcopy()` fonksiyonunu, `memodict`i kullanarak çağırın.
 
 Peki bu sihirli metodları nerede kullanacağız? Her zaman olduğu gibi, varsayılan davranışın yetmediği, daha detaylı kontrole gerek duyduğunuz her durumda kullanabilirsiniz. Örneğin, aynı türün bütün nesnelerin arasında paylaşılması gereken bir nesneyi, kopyalama sırasında, kopyalamak yerine oluşturulan kopyalara verebiliriz.
 
@@ -720,29 +720,29 @@ Pickle'ladığınız nesneler her Python sürümünde çalışmayabilir; bunun i
 
 Pickle'lamak yalnızca dahili türler için değildir; pickle protokolünü uygulayan her sınıf pickle'lanabilir. Pickle protokolü, Python nesnelerinin nasıl davranacağını belirleyen 4 ihtiyari (_opsiyonel_) metoda sahiptir (C uzantıları için durum biraz farklıdır; ancak bu konumuzun dışında):
 
-`__getinitargs__(self)`
+#### **`__getinitargs__(self)`**
 
-:   Nesneniz geri pickle'landığında (ing: _unpickling_) `__init__` metodunun çağırılmasını istiyorsanız, `__init__` metoduna gönderilecek argümanların demetini (`tuple`) döndüren `__getinitargs__` metodunu tanımlayabilirsiniz. Bu metod yalnızca Python 2'de ve eski-biçim sınıflarda çalışır.
+Nesneniz geri pickle'landığında (ing: _unpickling_) `__init__` metodunun çağırılmasını istiyorsanız, `__init__` metoduna gönderilecek argümanların demetini (`tuple`) döndüren `__getinitargs__` metodunu tanımlayabilirsiniz. Bu metod yalnızca Python 2'de ve eski-biçim sınıflarda çalışır.
 
-`__getnewargs__(self)`
+#### **`__getnewargs__(self)`**
 
-:   Yeni-biçim sınıflarda, geri-pickle'lama sırasında `__new__` metoduna gönderilecek argümanların demetini (`tuple`) döndürmelidir.
+Yeni-biçim sınıflarda, geri-pickle'lama sırasında `__new__` metoduna gönderilecek argümanların demetini (`tuple`) döndürmelidir.
 
-`__getnewargs_ex__(self)`
+#### **`__getnewargs_ex__(self)`**
 
-:   Pickle `protocol` >= 4 olduğunda, eğer bu metod mevuctsa, `__getnewargs__` yerine bu çağırılır.
+Pickle `protocol` >= 4 olduğunda, eğer bu metod mevuctsa, `__getnewargs__` yerine bu çağırılır.
 
-`__getstate__(self)`
+#### **`__getstate__(self)`**
 
-:   Nesnenin `__dict__` niteliğini depolamak/pickle'lamak yerine, başka bir nesnenin de depolanmasını isteyebilirsiniz. Döndürülen değer, geri-pickle'lama sırasında `__setstate__`e gönderilecektir.
+Nesnenin `__dict__` niteliğini depolamak/pickle'lamak yerine, başka bir nesnenin de depolanmasını isteyebilirsiniz. Döndürülen değer, geri-pickle'lama sırasında `__setstate__`e gönderilecektir.
 
-`__setstate__(self, state)`
+#### **`__setstate__(self, state)`**
 
-:   Nesne geri-pickle'landığı zaman, eğer `__setstate__` tanımlı ise, nesnenin _durumu_ (ing: _state_) doğrudan nesnenin \`**dict**&#8216; niteliğine atanmak yerine, bu metoda gönderilir.
+Nesne geri-pickle'landığı zaman, eğer `__setstate__` tanımlı ise, nesnenin _durumu_ (ing: _state_) doğrudan nesnenin \`**dict**&#8216; niteliğine atanmak yerine, bu metoda gönderilir.
 
-`__reduce__(self)`
+#### **`__reduce__(self)`**
 
-:   Genişletme türleri tanımlandığında (yani Python'un C API'si kullanılarak oluşturulmuş türlerde), Python'a onları nasıl pickle'layacağını söylemeniz gerekir. `__reduce__()` metodu, pickle'lanan nesne ona sahipse çağırılır. Python'un arayacağı global bir isimi temsil eden bir karakter dizisi (`str`) veya bir demet (`tuple`) döndürmelidir. Demet, 2 ila 5 eleman içerebilir:
+Genişletme türleri tanımlandığında (yani Python'un C API'si kullanılarak oluşturulmuş türlerde), Python'a onları nasıl pickle'layacağını söylemeniz gerekir. `__reduce__()` metodu, pickle'lanan nesne ona sahipse çağırılır. Python'un arayacağı global bir isimi temsil eden bir karakter dizisi (`str`) veya bir demet (`tuple`) döndürmelidir. Demet, 2 ila 5 eleman içerebilir:
 
   * Nesneyi yeniden yaratmak için kullanılan çağırılabilir bir nesne.
   * Yukarıdaki çağırılabilir nesneye gönderilecek olan argümanların demeti.
@@ -750,8 +750,8 @@ Pickle'lamak yalnızca dahili türler için değildir; pickle protokolünü uygu
   * Nesneye iliştirilecek (ing: _append_) olan nesneleri tek tek döndüren bir yineleyici (ing: _iterator_). Yineleyicinin döndürdüğü nesneler, geri-pickle'lanan nesnenin `.append()` metoduyla tek tek veyahut `.extend()` metoduyla topluca iliştirilebilir; bu nedenle nesnenin her iki metodu da desteklemesi gerekir. Özellikle, liste (`list`) gibi nesnelerin geri-pickle'lanması sırasında bu önemlidir. (tercihen)
   * Nesneye eklenecek anahtar-değer (ing: _key-value_) çifterlerini tek tek döndüren bir yineleyici. Yineleyicinin döndürdüğü nesneler, `nesne[anahtar] = değer` şeklinde eklenecektir; bu yüzden geri-pickle'lanan nesnenin `__setitem__` metoduna sahip olması gerekir. Özellikle, sözlük (`dict`) gibi nesnelerin geri-pickle'lanması sırasında bu önemlidir. (tercihen)
 
-`__reduce_ex__(self, protocol)`
-:   Bu metodun tanımlı olduğu durumlarda, `__reduce__` metodu yerine bu çağırılır. `__reduce__` metodundan tek farkı, kullanılan protokol sürümünün numarasını `protokol` argümanı olarak almasıdır.
+#### **`__reduce_ex__(self, protocol)`**
+Bu metodun tanımlı olduğu durumlarda, `__reduce__` metodu yerine bu çağırılır. `__reduce__` metodundan tek farkı, kullanılan protokol sürümünün numarasını `protokol` argümanı olarak almasıdır.
 
 ### Bir örnek
 

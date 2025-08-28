@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2023-17"
 date: 2023-05-01T19:41:00Z
+categories:
+  - wirtw
 ---
 
 Late, again. I'm unapologetic this time: while my "weekly" cadence is getting slower, it also gives me more time to think & _curate_ what exactly I want to amplify here. I'm also noticing a shift in my interests from engineering to engineering management, as evidenced by the current edition. Enjoy!

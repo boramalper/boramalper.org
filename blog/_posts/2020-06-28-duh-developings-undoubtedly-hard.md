@@ -1,6 +1,7 @@
 ---
 title: "DUH: Developing's Undoubtedly Hard"
 date: 2020-06-28T11:41:00+03:00
+published: false
 ---
 
 I have decided to start a series of blog posts to rant about the difficulties of developing for real-life.

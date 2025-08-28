@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2023-03"
 date: 2023-01-22T22:21:00Z
+categories:
+  - wirtw
 ---
 
 I wrote two blogposts today:

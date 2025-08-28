@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2021-04"
 date: 2021-01-30T13:18:53+03:00
+categories:
+  - wirtw
 ---
 
 - [Habitat 67, Montreal's 'failed dream' – a history of cities in 50 buildings, day 35](https://www.theguardian.com/cities/2015/may/13/habitat-67-montreal-expo-moshe-safdie-history-cities-50-buildings-day-35)

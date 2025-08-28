@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2023-09"
 date: 2023-03-05T21:30:00Z
+categories:
+  - wirtw
 ---
 
 I skipped for 6 weeks, I know. I'm sorry!

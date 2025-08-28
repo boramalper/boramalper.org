@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2022-52"
 date: 2023-01-01T13:00:00Z
+categories:
+  - wirtw
 ---
 
 **[On Being A Senior Engineer](https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/) (2012) by John Allspaw**

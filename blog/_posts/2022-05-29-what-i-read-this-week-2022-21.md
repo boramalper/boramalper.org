@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2022-21"
 date: 2022-05-29T20:07:00Z
+categories:
+  - wirtw
 ---
 
 - [Improved error reporting for CPython 3.10—and beyond](https://lwn.net/Articles/895587/) (LWN subscribers only, see [What's New In Python 3.10 § Better error messages](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages))

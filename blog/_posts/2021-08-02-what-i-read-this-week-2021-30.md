@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2021-30"
 date: 2021-08-02T00:00:00Z
+categories:
+  - wirtw
 ---
 
 _Late by a day._

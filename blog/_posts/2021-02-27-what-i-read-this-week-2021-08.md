@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2021-08"
 date: 2021-02-27T00:00:00Z
+categories:
+  - wirtw
 ---
 
 - [Daft Punk Break Up](https://pitchfork.com/news/daft-punk-call-it-quits/)

@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2021-05"
 date: 2021-02-05T13:18:53+03:00
+categories:
+  - wirtw
 ---
 
 - *[This Hacker News Comment](https://news.ycombinator.com/item?id=25964324)*

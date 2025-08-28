@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2023-02"
 date: 2023-01-15T20:58:00Z
+categories:
+  - wirtw
 ---
 
 **[We don't A/B test core values](https://world.hey.com/dhh/we-don-t-a-b-test-core-values-91b5f562) by David Heinemeier Hansson**

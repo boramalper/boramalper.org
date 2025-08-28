@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2022-23"
 date: 2022-06-13T21:08:00Z
+categories:
+  - wirtw
 ---
 
 Late by a day again, but better late than never!

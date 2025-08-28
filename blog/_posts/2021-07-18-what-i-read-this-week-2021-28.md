@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2021-28"
 date: 2021-07-18T00:00:00Z
+categories:
+  - wirtw
 ---
 
 After a long intermission, I am happy to be back!

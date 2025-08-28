@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2022-20"
 date: 2022-05-22T08:40:00Z
+categories:
+  - wirtw
 ---
 
 After a year-long intermission, here it is.

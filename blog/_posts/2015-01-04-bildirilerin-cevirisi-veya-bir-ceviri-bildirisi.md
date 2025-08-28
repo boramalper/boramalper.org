@@ -21,10 +21,10 @@ Normalde İngilizce bir bilişim metnini çevirmeyi gereksiz bulur, daha doğrus
 
 **Çevrilenler:**
 
-  * [Veri Sevgisi](http://blog.boramalper.org/ceviriler/bildiriler/veri-sevgisi) (aslı: <a href="http://www.datalove.me/" target="_blank" rel="noopener noreferrer">Datalove</a>)
-  * [Siberuzayın Bağımsızlığının Bir Bildirisi](https://blog.boramalper.org/ceviriler/siberuzayin-bagimsizliginin-bir-bildirisi) (aslı: <a href="https://projects.eff.org/~barlow/Declaration-Final.html" target="_blank" rel="noopener noreferrer">A Declaration of the Independence of Cyberspace</a>)
+  * [Veri Sevgisi]({% post_url 2015-01-04-veri-sevgisi %}) (aslı: <a href="http://www.datalove.me/" target="_blank" rel="noopener noreferrer">Datalove</a>)
+  * [Siberuzayın Bağımsızlığının Bir Bildirisi]({% post_url 2015-01-29-siberuzayin-bagimsizliginin-bir-bildirisi %}) (aslı: <a href="https://projects.eff.org/~barlow/Declaration-Final.html" target="_blank" rel="noopener noreferrer">A Declaration of the Independence of Cyberspace</a>)
   * (<a href="http://acikhavasiir.blogspot.com.tr" target="_blank" rel="noopener noreferrer">Açık Hava</a>&#8216;nın çevirisi ile) <a href="https://web.archive.org/web/20141023023812/http://acikhavasiir.blogspot.com.tr/2012/01/kripto-anarsist-manifesto-bir-hayalet.html" target="_blank" rel="noopener noreferrer">Kripto Anarşist Manifesto</a> (aslı: <a href="http://www.activism.net/cypherpunk/crypto-anarchy.html" target="_blank" rel="noopener noreferrer">The Crypto Anarchist Manifesto</a>)
-  * <a href="https://blog.boramalper.org/ceviriler/bir-sifrepunkin-bildirisi" target="_blank" rel="noopener noreferrer">Bir Şifrepunk&#8217;ın Bildirisi</a> (<a href="http://www.activism.net/cypherpunk/manifesto.html" target="_blank" rel="noopener noreferrer">A Cypherpunk&#8217;s Manifesto</a>)
+  * [Bir Şifrepunk&#8217;ın Bildirisi]({% post_url 2015-06-20-bir-sifrepunkin-bildirisi %}) (<a href="http://www.activism.net/cypherpunk/manifesto.html" target="_blank" rel="noopener noreferrer">A Cypherpunk&#8217;s Manifesto</a>)
 
 **Çevrilmeyi bekleyenler**
 

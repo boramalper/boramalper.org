@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2021-07"
 date: 2021-02-21T00:00:00Z
+categories:
+  - wirtw
 ---
 
 - [Specialization Is For Insects](https://wiki.c2.com/?SpecializationIsForInsects)

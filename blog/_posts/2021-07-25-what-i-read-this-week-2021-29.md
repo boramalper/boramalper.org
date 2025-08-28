@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2021-29"
 date: 2021-07-25T00:00:00Z
+categories:
+  - wirtw
 ---
 
 - [If Richard Feynman applied for a job at Microsoft](https://sellsbrothers.com/12395)

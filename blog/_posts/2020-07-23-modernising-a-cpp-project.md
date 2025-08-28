@@ -1,6 +1,7 @@
 ---
 title: "Modernising a C++ Project"
 date: 2020-07-23T14:38:43+03:00
+published: false
 ---
 
 During my summer internship at the School of Engineering in The University of Edinburgh, I was responsible for the development of a fluid simulator that consisted of around fifteen thousand lines of C++ code, written by chemical engineers. The code was well written, yet coming from a computer science background, I could see a lot of room for improvement.

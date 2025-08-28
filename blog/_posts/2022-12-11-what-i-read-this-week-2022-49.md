@@ -1,6 +1,8 @@
 ---
 title: "What I Read This Week: 2022-49"
 date: 2022-12-11T16:39:00Z
+categories:
+  - wirtw
 ---
 
 **[The bubble has popped for unprofitable software companies](https://world.hey.com/dhh/the-bubble-has-popped-for-unprofitable-software-companies-2a0a5f57) by David Heinemeier Hansson**

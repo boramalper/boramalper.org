@@ -16,7 +16,7 @@ tags:
 ---
 _A more interesting way to find n<sup>th</sup> [Fibonacci number](https://en.wikipedia.org/wiki/Fibonacci_number)._
 
-Fibonacci sequence is a prime example in teaching recursion to newcomers, and a great opportunity to brag if your language supports [Tail Call Optimization](http://wiki.c2.com/?TailCallOptimization), but it often goes unnoticed that there is a [closed-form expression](https://en.wikipedia.org/wiki/Closed-form_expression) which lets us find the n<sup>th</sup> Fibonacci number with great ease and in much faster way. This article will present the expression, and explain -step by step- its derivation using high-school mathematics.
+Fibonacci sequence is a prime example in teaching recursion to newcomers, and a great opportunity to brag if your language supports [Tail Call Optimization](http://wiki.c2.com/?TailCallOptimization), but it often goes unnoticed that there is a [closed-form expression](https://en.wikipedia.org/wiki/Closed-form_expression) which lets us find the n<sup>th</sup> Fibonacci number with great ease and in much faster way. This article will present the expression, and explain&mdash;step by step&mdash;its derivation using high-school mathematics.
 
 Here is the expression (for \\( u_1 = u_2 = 1 \\) ):
 
