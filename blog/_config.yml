@@ -22,8 +22,8 @@ title: Bora M. Alper
 email: bora@boramalper.org
 description: >- # this means to ignore newlines until "baseurl:"
   Developer, Amateur Photographer, and Human After All.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.boramalper.org" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: "https://boramalper.org" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  boramalper
 mastodon:
   - username: boramalper
